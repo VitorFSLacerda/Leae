@@ -12,6 +12,7 @@
 		E547B59E2DAD298300B04FC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E547B59D2DAD298300B04FC0 /* Assets.xcassets */; };
 		E547B5A12DAD298300B04FC0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E547B5A02DAD298300B04FC0 /* Preview Assets.xcassets */; };
 		E547B5C72DAD40FF00B04FC0 /* Gerenciador.swift in Sources */ = {isa = PBXBuildFile; fileRef = E547B5C62DAD40FE00B04FC0 /* Gerenciador.swift */; };
+		E547B5C92DAD463A00B04FC0 /* .gitignore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E547B5C82DAD463A00B04FC0 /* .gitignore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		E547B5A62DAD298400B04FC0 /* telaMissaoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = telaMissaoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E547B5B02DAD298400B04FC0 /* telaMissaoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = telaMissaoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E547B5C62DAD40FE00B04FC0 /* Gerenciador.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gerenciador.swift; sourceTree = "<group>"; };
+		E547B5C82DAD463A00B04FC0 /* .gitignore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = .gitignore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 		E547B58D2DAD298000B04FC0 = {
 			isa = PBXGroup;
 			children = (
+				E547B5C82DAD463A00B04FC0 /* .gitignore.swift */,
 				E547B5982DAD298100B04FC0 /* telaMissao */,
 				E547B5972DAD298100B04FC0 /* Products */,
 			);
@@ -236,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E547B59C2DAD298100B04FC0 /* ContentView.swift in Sources */,
+				E547B5C92DAD463A00B04FC0 /* .gitignore.swift in Sources */,
 				E547B59A2DAD298100B04FC0 /* telaMissaoApp.swift in Sources */,
 				E547B5C72DAD40FF00B04FC0 /* Gerenciador.swift in Sources */,
 			);
