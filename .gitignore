@@ -6,6 +6,7 @@
 xcuserdata/
 
 .DS_Store
+telaMissao.xcodeproj/
 
 ## Obj-C/Swift specific
 *.hmap
