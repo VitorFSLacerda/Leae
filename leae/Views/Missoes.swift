@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ContentView: View {
+struct Missoes: View {
     let dias = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sab", "Dom"]
     var body: some View {
         VStack{
@@ -24,7 +24,7 @@ struct ContentView: View {
             
             VStack{
                 Text("Missões diárias")
-                    .titleStyle()
+                    
             }
                 
         }.navigationTitle("Missões")
@@ -32,10 +32,10 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct Missoes_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
-            ContentView()
+            Missoes()
         }
     }
 }
