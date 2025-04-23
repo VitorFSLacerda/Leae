@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A73190C42DB9576B006B97A8 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73190C32DB9576B006B97A8 /* Home.swift */; };
-		A73190C62DB95783006B97A8 /* ComponentsStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73190C52DB95783006B97A8 /* ComponentsStructure.swift */; };
+		A7F43E042DB96CC000B65246 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F43E032DB96CC000B65246 /* Components.swift */; };
+		A7F43E062DB96CE500B65246 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F43E052DB96CE500B65246 /* Home.swift */; };
 		E547B59A2DAD298100B04FC0 /* LeaeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E547B5992DAD298100B04FC0 /* LeaeApp.swift */; };
 		E547B59C2DAD298100B04FC0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E547B59B2DAD298100B04FC0 /* ContentView.swift */; };
 		E547B5D52DAD541000B04FC0 /* ViewMissoes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E547B5D42DAD541000B04FC0 /* ViewMissoes.swift */; };
@@ -39,8 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A73190C32DB9576B006B97A8 /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Home.swift; path = ../../../../Downloads/Home.swift; sourceTree = "<group>"; };
-		A73190C52DB95783006B97A8 /* ComponentsStructure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComponentsStructure.swift; path = ../../../../Downloads/ComponentsStructure.swift; sourceTree = "<group>"; };
+		A7F43E032DB96CC000B65246 /* Components.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Components.swift; path = ../../../../Downloads/Components.swift; sourceTree = "<group>"; };
+		A7F43E052DB96CE500B65246 /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Home.swift; path = ../../../../Downloads/Home.swift; sourceTree = "<group>"; };
 		E547B5962DAD298100B04FC0 /* leae.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = leae.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E547B5992DAD298100B04FC0 /* LeaeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaeApp.swift; sourceTree = "<group>"; };
 		E547B59B2DAD298100B04FC0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -81,6 +81,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A7F43E022DB96C8500B65246 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				A7F43E032DB96CC000B65246 /* Components.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
 		E547B58D2DAD298000B04FC0 = {
 			isa = PBXGroup;
 			children = (
@@ -102,11 +110,8 @@
 		E547B5982DAD298100B04FC0 /* leae */ = {
 			isa = PBXGroup;
 			children = (
-				E547B5D32DAD52F600B04FC0 /* Routing */,
-				E547B5D22DAD52DC00B04FC0 /* Utils */,
-				E547B5D02DAD52C400B04FC0 /* Services */,
+				A7F43E022DB96C8500B65246 /* Sources */,
 				E547B5CA2DAD524C00B04FC0 /* Views */,
-				E547B5CB2DAD525700B04FC0 /* ViewModels */,
 				E547B5CF2DAD52BA00B04FC0 /* Models */,
 				E547B5CD2DAD529B00B04FC0 /* Resources */,
 				E547B5CC2DAD528D00B04FC0 /* App */,
@@ -117,21 +122,13 @@
 		E547B5CA2DAD524C00B04FC0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A73190C32DB9576B006B97A8 /* Home.swift */,
+				A7F43E052DB96CE500B65246 /* Home.swift */,
 				E547B59B2DAD298100B04FC0 /* ContentView.swift */,
 				E587D8EB2DAE884200E00062 /* ViewPerfilProprio.swift */,
 				E547B5D42DAD541000B04FC0 /* ViewMissoes.swift */,
 				E548B4E72DB7BE8700C566AC /* ViewLivro.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		E547B5CB2DAD525700B04FC0 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				A73190C52DB95783006B97A8 /* ComponentsStructure.swift */,
-			);
-			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		E547B5CC2DAD528D00B04FC0 /* App */ = {
@@ -159,27 +156,6 @@
 				E5BD7F7E2DB7E77200274842 /* Livro.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		E547B5D02DAD52C400B04FC0 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		E547B5D22DAD52DC00B04FC0 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		E547B5D32DAD52F600B04FC0 /* Routing */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Routing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,14 +289,14 @@
 			files = (
 				E547B59C2DAD298100B04FC0 /* ContentView.swift in Sources */,
 				E547B59A2DAD298100B04FC0 /* LeaeApp.swift in Sources */,
-				A73190C42DB9576B006B97A8 /* Home.swift in Sources */,
 				E5BD7F7F2DB7E77200274842 /* Livro.swift in Sources */,
+				A7F43E062DB96CE500B65246 /* Home.swift in Sources */,
 				E5BD7F7D2DB7E76700274842 /* Grupo.swift in Sources */,
 				E5BD7F7B2DB7E64800274842 /* Usuario.swift in Sources */,
 				E547B5D52DAD541000B04FC0 /* ViewMissoes.swift in Sources */,
 				E587D8EC2DAE884200E00062 /* ViewPerfilProprio.swift in Sources */,
 				E5FF8A1F2DB9034D00B8F051 /* Missao.swift in Sources */,
-				A73190C62DB95783006B97A8 /* ComponentsStructure.swift in Sources */,
+				A7F43E042DB96CC000B65246 /* Components.swift in Sources */,
 				E548B4E82DB7BE8700C566AC /* ViewLivro.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
