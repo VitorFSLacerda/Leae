@@ -1,7 +1,7 @@
 
 import SwiftUI
 
-struct Livro: View {
+struct ViewLivro: View {
     var nomeLivro = "Ainda estou aqui"
     var nomeEscritor = "Marcelo Rubens Paiva"
     var nomeAutor = "Mauricio"
@@ -110,7 +110,7 @@ struct Livro: View {
 struct Livro_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
-            Livro()
+            ViewLivro()
         }
     }
 }

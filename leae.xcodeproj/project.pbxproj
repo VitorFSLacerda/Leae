@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		E547B59A2DAD298100B04FC0 /* LeaeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E547B5992DAD298100B04FC0 /* LeaeApp.swift */; };
 		E547B59C2DAD298100B04FC0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E547B59B2DAD298100B04FC0 /* ContentView.swift */; };
-		E547B5D52DAD541000B04FC0 /* Missoes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E547B5D42DAD541000B04FC0 /* Missoes.swift */; };
-		E548B4E82DB7BE8700C566AC /* Livro.swift in Sources */ = {isa = PBXBuildFile; fileRef = E548B4E72DB7BE8700C566AC /* Livro.swift */; };
+		E547B5D52DAD541000B04FC0 /* ViewMissoes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E547B5D42DAD541000B04FC0 /* ViewMissoes.swift */; };
+		E548B4E82DB7BE8700C566AC /* ViewLivro.swift in Sources */ = {isa = PBXBuildFile; fileRef = E548B4E72DB7BE8700C566AC /* ViewLivro.swift */; };
 		E559393B2DAFCF90004668AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E559393A2DAFCF90004668AD /* Assets.xcassets */; };
-		E587D8EC2DAE884200E00062 /* PerfilProprio.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587D8EB2DAE884200E00062 /* PerfilProprio.swift */; };
+		E587D8EC2DAE884200E00062 /* ViewPerfilProprio.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587D8EB2DAE884200E00062 /* ViewPerfilProprio.swift */; };
 		E5BD7F7B2DB7E64800274842 /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BD7F7A2DB7E64800274842 /* Usuario.swift */; };
 		E5BD7F7D2DB7E76700274842 /* Grupo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BD7F7C2DB7E76700274842 /* Grupo.swift */; };
-		E5BD7F7F2DB7E77200274842 /* Livros.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BD7F7E2DB7E77200274842 /* Livros.swift */; };
+		E5BD7F7F2DB7E77200274842 /* Livro.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BD7F7E2DB7E77200274842 /* Livro.swift */; };
 		E5FF8A1F2DB9034D00B8F051 /* Missao.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FF8A1E2DB9034D00B8F051 /* Missao.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,13 +42,13 @@
 		E547B59B2DAD298100B04FC0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E547B5A62DAD298400B04FC0 /* leaeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = leaeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E547B5B02DAD298400B04FC0 /* leaeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = leaeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E547B5D42DAD541000B04FC0 /* Missoes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Missoes.swift; sourceTree = "<group>"; };
-		E548B4E72DB7BE8700C566AC /* Livro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Livro.swift; sourceTree = "<group>"; };
+		E547B5D42DAD541000B04FC0 /* ViewMissoes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMissoes.swift; sourceTree = "<group>"; };
+		E548B4E72DB7BE8700C566AC /* ViewLivro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLivro.swift; sourceTree = "<group>"; };
 		E559393A2DAFCF90004668AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E587D8EB2DAE884200E00062 /* PerfilProprio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilProprio.swift; sourceTree = "<group>"; };
+		E587D8EB2DAE884200E00062 /* ViewPerfilProprio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPerfilProprio.swift; sourceTree = "<group>"; };
 		E5BD7F7A2DB7E64800274842 /* Usuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
 		E5BD7F7C2DB7E76700274842 /* Grupo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grupo.swift; sourceTree = "<group>"; };
-		E5BD7F7E2DB7E77200274842 /* Livros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Livros.swift; sourceTree = "<group>"; };
+		E5BD7F7E2DB7E77200274842 /* Livro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Livro.swift; sourceTree = "<group>"; };
 		E5FF8A1E2DB9034D00B8F051 /* Missao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Missao.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,9 +114,9 @@
 			isa = PBXGroup;
 			children = (
 				E547B59B2DAD298100B04FC0 /* ContentView.swift */,
-				E587D8EB2DAE884200E00062 /* PerfilProprio.swift */,
-				E547B5D42DAD541000B04FC0 /* Missoes.swift */,
-				E548B4E72DB7BE8700C566AC /* Livro.swift */,
+				E587D8EB2DAE884200E00062 /* ViewPerfilProprio.swift */,
+				E547B5D42DAD541000B04FC0 /* ViewMissoes.swift */,
+				E548B4E72DB7BE8700C566AC /* ViewLivro.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -150,7 +150,7 @@
 				E5BD7F7A2DB7E64800274842 /* Usuario.swift */,
 				E5BD7F7C2DB7E76700274842 /* Grupo.swift */,
 				E5FF8A1E2DB9034D00B8F051 /* Missao.swift */,
-				E5BD7F7E2DB7E77200274842 /* Livros.swift */,
+				E5BD7F7E2DB7E77200274842 /* Livro.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -307,13 +307,13 @@
 			files = (
 				E547B59C2DAD298100B04FC0 /* ContentView.swift in Sources */,
 				E547B59A2DAD298100B04FC0 /* LeaeApp.swift in Sources */,
-				E5BD7F7F2DB7E77200274842 /* Livros.swift in Sources */,
+				E5BD7F7F2DB7E77200274842 /* Livro.swift in Sources */,
 				E5BD7F7D2DB7E76700274842 /* Grupo.swift in Sources */,
 				E5BD7F7B2DB7E64800274842 /* Usuario.swift in Sources */,
-				E547B5D52DAD541000B04FC0 /* Missoes.swift in Sources */,
-				E587D8EC2DAE884200E00062 /* PerfilProprio.swift in Sources */,
+				E547B5D52DAD541000B04FC0 /* ViewMissoes.swift in Sources */,
+				E587D8EC2DAE884200E00062 /* ViewPerfilProprio.swift in Sources */,
 				E5FF8A1F2DB9034D00B8F051 /* Missao.swift in Sources */,
-				E548B4E82DB7BE8700C566AC /* Livro.swift in Sources */,
+				E548B4E82DB7BE8700C566AC /* ViewLivro.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

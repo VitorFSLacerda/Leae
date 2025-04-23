@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct Missoes: View {
+struct ViewMissoes: View {
     let dias = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sab", "Dom"]
     let missoes = ["Nova leitura 50 XP", "Comente algo 30 XP", "Leia 15 páginas 60 XP"]
 
@@ -119,7 +119,7 @@ struct Missoes: View {
 struct Missoes_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
-            Missoes()
+            ViewMissoes()
         }
     }
 }

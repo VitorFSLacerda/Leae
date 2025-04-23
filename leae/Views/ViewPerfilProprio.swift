@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct PerfilProprio: View {
+struct ViewPerfilProprio: View {
     @State var imagemPerfil = "perfilImagem"
     @State var name = "Maria Gabriella Almeida"
     @State var arroba = "@"+"marimeida"
@@ -144,7 +144,7 @@ struct PerfilProprio: View {
 struct PerfilProprio_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
-            PerfilProprio()
+            ViewPerfilProprio()
         }
     }
 }
