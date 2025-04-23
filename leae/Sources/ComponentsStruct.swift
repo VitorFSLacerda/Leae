@@ -56,13 +56,13 @@ struct FakeListStructure: View{
 
 // chamada: FakeListStructure(books:["livro1","livro2","livro3])
 
-
-@main
-struct testeApp: App {
-    var body: some Scene {
-        WindowGroup {
-                ContentView()
-            }
-        }
-    }
+//
+//@main
+//struct testeApp: App {
+//    var body: some Scene {
+//        WindowGroup {
+//                HomeView()
+//            }
+//        }
+//    }
 
