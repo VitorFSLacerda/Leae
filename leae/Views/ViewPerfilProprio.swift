@@ -1,18 +1,32 @@
 import SwiftUI
 
 struct ViewPerfilProprio: View {
-    @State var imagemPerfil = "perfilImagem"
-    @State var name = "Maria Gabriella Almeida"
-    @State var arroba = "@"+"marimeida"
-    @State var blocos = ["perfilImagem", "perfilImagem", "perfilImagem"]
+    
+    @ObservedObject var viewModelUsuario: UsuarioViewModel
+    @ObservedObject var comentarioViewModel: ViewModelComentario
+    @State private var imagemPerfil: String
+    @State private var nome: String
+    @State private var apelido: String
+    
+    
+    
+    init(viewModel: UsuarioViewModel, comentarios: [Comentario]) {
+        self.viewModelUsuario = viewModel
+        self.comentarioViewModel = ViewModelComentario(comentarios: comentarios)
+                _imagemPerfil = State(initialValue: viewModel.foto)
+        _nome = State(initialValue: viewModel.nome)
+        _apelido = State(initialValue: viewModel.apelido)
+    }
+
     var icons = ["book", "square.grid.2x2", "star", "flame"]
     var titulos = ["Biblioteca", "Grupos", "Missões", "Conquistas"]
     let colunas = [GridItem(.flexible()), GridItem(.flexible())]
-    let curtida = "3"
-    let comentario = "4"
-    let salvo = "2"
-
+    var qtdComentarios: Int {
+        comentarioViewModel.quantidadeDeComentarios()
+    }
     
+
+
     var body: some View {
         ZStack {
             Color("fundo")
@@ -28,10 +42,10 @@ struct ViewPerfilProprio: View {
                         .clipShape(Circle()) // Recorta a imagem no formato de círculo
                     HStack{
                         VStack(alignment: .leading){
-                            Text(name)
+                            Text(nome)
                                 .font(.system(size:25))
                             
-                            Text(arroba)
+                            Text(apelido)
                         }
                         
                         Spacer()
@@ -84,18 +98,22 @@ struct ViewPerfilProprio: View {
                             .font(.system(size: 25))
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.horizontal)
-                        ForEach(blocos, id: \.self) { bloco in
-                            ZStack{
+                        
+
+                        ForEach(0..<qtdComentarios, id: \.self) { index in
+                            let comentario = comentarioViewModel.comentarios[index]
+
+                            ZStack {
                                 Rectangle()
                                     .fill(Color("bloco"))
                                     .frame(width: 370, height: 200)
                                     .cornerRadius(10)
-                                    
-                                Text(arroba)
+                                
+                                Text(comentario.usuario.apelido)
                                     .padding(.bottom, 160)
                                     .padding(.trailing, 250)
                                 
-                                Text("Esse é um comentario sobre o livro.")
+                                Text(comentario.texto)
                                     .padding(.bottom, 75)
                                     .padding(.leading, 130)
                                     .multilineTextAlignment(.leading)
@@ -106,7 +124,6 @@ struct ViewPerfilProprio: View {
                                     .cornerRadius(10)
                                     .padding(.trailing, 250)
                                     .padding(.top, 25)
-                                    
                                 
                                 Image(systemName: "square.and.pencil")
                                     .font(.system(size: 20))
@@ -114,24 +131,20 @@ struct ViewPerfilProprio: View {
                                     .padding(.leading, 300)
                                 
                                 HStack(spacing: 150) {
-                                    HStack{
+                                    HStack {
                                         Image(systemName: "heart")
-                                        Text(curtida)
+                                        Text(String(comentario.curtidas))
                                     }
-                                    HStack{
+                                    HStack {
                                         Image(systemName: "ellipsis.bubble")
-                                        Text(comentario)
+                                        Text(String(comentario.comentarios.count))
                                     }
-                                    
                                 }
                                 .padding(.top, 150)
                                 .padding(.leading, 100)
-                                
-                                
-                                
-                                
                             }
                         }
+
                     }
                 }
                     
@@ -148,3 +161,5 @@ struct PerfilProprio_Previews: PreviewProvider {
         }
     }
 }
+    
+

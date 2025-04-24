@@ -17,6 +17,9 @@
 		E5BD7F7D2DB7E76700274842 /* Grupo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BD7F7C2DB7E76700274842 /* Grupo.swift */; };
 		E5BD7F7F2DB7E77200274842 /* Livro.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BD7F7E2DB7E77200274842 /* Livro.swift */; };
 		E5FF8A1F2DB9034D00B8F051 /* Missao.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FF8A1E2DB9034D00B8F051 /* Missao.swift */; };
+		E5FF8A212DB925A800B8F051 /* ViewModelUsuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FF8A202DB925A800B8F051 /* ViewModelUsuario.swift */; };
+		E5FF8A242DB92D0000B8F051 /* Comentario.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FF8A232DB92D0000B8F051 /* Comentario.swift */; };
+		E5FF8A262DB9318400B8F051 /* ViewModelComentario.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FF8A252DB9318400B8F051 /* ViewModelComentario.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +53,9 @@
 		E5BD7F7C2DB7E76700274842 /* Grupo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grupo.swift; sourceTree = "<group>"; };
 		E5BD7F7E2DB7E77200274842 /* Livro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Livro.swift; sourceTree = "<group>"; };
 		E5FF8A1E2DB9034D00B8F051 /* Missao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Missao.swift; sourceTree = "<group>"; };
+		E5FF8A202DB925A800B8F051 /* ViewModelUsuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelUsuario.swift; sourceTree = "<group>"; };
+		E5FF8A232DB92D0000B8F051 /* Comentario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comentario.swift; sourceTree = "<group>"; };
+		E5FF8A252DB9318400B8F051 /* ViewModelComentario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelComentario.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +130,8 @@
 		E547B5CB2DAD525700B04FC0 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				E5FF8A202DB925A800B8F051 /* ViewModelUsuario.swift */,
+				E5FF8A252DB9318400B8F051 /* ViewModelComentario.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -149,6 +157,7 @@
 			children = (
 				E5BD7F7A2DB7E64800274842 /* Usuario.swift */,
 				E5BD7F7C2DB7E76700274842 /* Grupo.swift */,
+				E5FF8A232DB92D0000B8F051 /* Comentario.swift */,
 				E5FF8A1E2DB9034D00B8F051 /* Missao.swift */,
 				E5BD7F7E2DB7E77200274842 /* Livro.swift */,
 			);
@@ -305,7 +314,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5FF8A212DB925A800B8F051 /* ViewModelUsuario.swift in Sources */,
+				E5FF8A262DB9318400B8F051 /* ViewModelComentario.swift in Sources */,
 				E547B59C2DAD298100B04FC0 /* ContentView.swift in Sources */,
+				E5FF8A242DB92D0000B8F051 /* Comentario.swift in Sources */,
 				E547B59A2DAD298100B04FC0 /* LeaeApp.swift in Sources */,
 				E5BD7F7F2DB7E77200274842 /* Livro.swift in Sources */,
 				E5BD7F7D2DB7E76700274842 /* Grupo.swift in Sources */,
