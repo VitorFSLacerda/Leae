@@ -99,22 +99,6 @@ struct TabBar: View {
     }
 }
 
-struct AltZstack: View{
-    var body: some View{
-        ZStack{
-            VStack{
-                RoundedRectangle(cornerRadius: 15)
-                    .foregroundColor(.orange)
-                    .frame(width: 343, height: 140)
-                    .cornerRadius(20)
-                    .shadow(color: .black.opacity(0.2), radius: 10, x: 5, y: 0)
-
-            }
-        }
-    }
-}
-
-
 struct SimpleBarChart: View{
     let data: [BarData]
     
@@ -221,7 +205,7 @@ struct HomeView: View {
                 
                 FakeListStructure(book: ["Shreck", "TVD", "Faz o urro"])
                 
-                TitleStructure(title: "Seu Ranking", sub:"Ver mais")
+                TitleStructure(title: "Constância", sub:"Ver detalhes")
                 
                 Spacer(minLength: -40)
 
@@ -229,12 +213,24 @@ struct HomeView: View {
                     .frame(height: 300)
                     .padding()
                 
-                TitleStructure(title: "Comentários", sub: "Veja todos")
-
-                FakeListStructure(book: ["O Shreck não faz o urro", "Gato de botas é zika do baile", "Lord farcry é poggers"])
-
+                VStack{
+                    
+                    Spacer(minLength: -40)
+                    
+                    TitleStructure(title: "Comentários", sub: "Veja todos")
+                    
+                    FakeListStructure(book: ["O Shreck não faz o urro", "Gato de botas é zika do baile", "Lord farcry é poggers"])
+                }
+                
+            VStack{
+                InfoCard(Up:"Teste", Down: "Teste")
+                
+                ListCard(title: "Titulo Seção", book: ["L1","L2","L3"])
+                }
                     
             }
+            
+
 //            TabBar()
             
         }
