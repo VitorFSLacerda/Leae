@@ -81,9 +81,9 @@ struct TabBar: View {
             
             Color.clear
                 .tabItem{
-                    Image(systemName: "heart.fill")
+                    Image(systemName: "book")
                         .font(.system(size:25))
-                    Text("Doação")
+                    Text("Bilioteca")
                 }
                 .tag(2)
             
@@ -168,7 +168,8 @@ struct HomeView: View {
             ScrollView{
                 HStack {
                     Text("Resumo")
-                        .font(.system(size: 30, weight: .semibold))
+                        .font(.title)
+                        .fontWeight(.semibold)
                     Spacer()
                 }
 //                Spacer()
@@ -192,10 +193,12 @@ struct HomeView: View {
                 VStack {
                     HStack {
                         Text("Grupos")
-                            .font(.system(size: 25, weight: .semibold))
+                            .font(.title)
+                            .fontWeight(.medium)
                         Spacer()
                         Text("Veja todos")
-                            .font(.system(size: 12, weight: .light))
+                            .font(.footnote)
+                            .fontWeight (.light)
                             .foregroundColor(.blue)
                             .padding()
                     }
@@ -226,6 +229,7 @@ struct HomeView: View {
                 InfoCard(Up:"Teste", Down: "Teste")
                 
                 ListCard(title: "Titulo Seção", book: ["L1","L2","L3"])
+                Spacer()
                 }
                     
             }
@@ -243,3 +247,6 @@ struct HomeView_Previews: PreviewProvider {
 }
 
 
+
+// shift + command + k - resetar, rebuild e limpeza de cache
+// botao direito + extract = cria struct com funcao selecionada
