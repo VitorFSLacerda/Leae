@@ -1,15 +1,20 @@
+//
+//  Constants.swift
+//  leae
+//
+//  Created by Aluno 12 on 28/04/25.
+//
+
 import SwiftUI
 
-// MARK: - Padding Values
-struct Padding {
-    static let small: CGFloat = 8
-    static let medium: CGFloat = 16
-    static let large: CGFloat = 24
+struct Constants: View {
+    var body: some View {
+        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    }
 }
 
-// MARK: - Corner Radius
-struct CornerRadius {
-    static let small: CGFloat = 4
-    static let medium: CGFloat = 8
-    static let large: CGFloat = 12
+struct Constants_Previews: PreviewProvider {
+    static var previews: some View {
+        Constants()
+    }
 }
