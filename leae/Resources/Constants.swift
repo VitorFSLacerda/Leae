@@ -1,4 +1,4 @@
-import Foundation
+import SwiftUI
 
 // MARK: - Padding Values
 struct Padding {
@@ -54,5 +54,5 @@ struct TitleBoxSize {
 
 // MARK: Line Limit Values
 struct LineLimit {
-	static let bookTitle: CGFloat = 85
+	static let bookTitle: Int = 85
 }
