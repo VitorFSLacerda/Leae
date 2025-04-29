@@ -154,12 +154,12 @@ struct ViewPerfilProprio: View {
     }
 }
 
-struct PerfilProprio_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView{
-            ViewPerfilProprio()
-        }
-    }
-}
+//struct PerfilProprio_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NavigationView{
+//            ViewPerfilProprio(viewModel: <#UsuarioViewModel#>, comentarios: <#[Comentario]#>)
+//        }
+//    }
+//}
     
 

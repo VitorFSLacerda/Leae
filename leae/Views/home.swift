@@ -17,17 +17,17 @@ struct GadgetCard: View {
             HStack {
                 Image(systemName: gadget.icon)
                     .font(.title)
-                    .foregroundColor(.white)
+                    .foregroundColor(Color(hex: "6F230F"))
                 Spacer()
             }
             
             Text(gadget.title)
                 .font(.headline)
-                .foregroundColor(.white)
+                .foregroundColor(Color(hex: "6F230F"))
             
             Text(gadget.description)
                 .font(.subheadline)
-                .foregroundColor(.white.opacity(0.8))
+                .foregroundColor(Color(hex: "FF642F").opacity(0.8))
                 .lineLimit(2)
         }
         .padding()
@@ -81,9 +81,9 @@ struct TabBar: View {
             
             Color.clear
                 .tabItem{
-                    Image(systemName: "heart.fill")
+                    Image(systemName: "book")
                         .font(.system(size:25))
-                    Text("Doação")
+                    Text("Bilioteca")
                 }
                 .tag(2)
             
@@ -99,68 +99,11 @@ struct TabBar: View {
     }
 }
 
-struct SimpleBarChart: View{
-    let data: [BarData]
-    
-    var body: some View {
-        VStack {
-//            // Título (opcional)
-//            Text("Páginas lidas")
-//                .font(.headline)
-//                .padding(.trailing, 220)
-            
-            // Gráfico
-            HStack(alignment: .bottom, spacing: 8) {
-                ForEach(data) { bar in
-                    VStack {
-                        // Barra
-                        Rectangle()
-                            .fill(bar.color)
-                            .frame(height: calculateBarHeight(value: bar.value))
-                        
-                        // Rótulo do valor
-                        Text("\(Int(bar.value))")
-                            .font(.caption)
-                        
-                        // Rótulo da categoria
-                        Text(bar.label)
-                            .font(.caption2)
-                            .frame(width: 60)
-                            .lineLimit(1)
-                    }
-                }
-            }
-            .frame(height: 200)
-            .padding(.horizontal)
-        }
-    }
-    
-    private func calculateBarHeight(value: Double) -> CGFloat {
-        let maxValue = data.map { $0.value }.max() ?? 1
-        return CGFloat(value / maxValue) * 140 // 180 é a altura máxima das barras
-    }
-}
-
-struct BarData: Identifiable {
-    let id = UUID()
-    let label: String
-    let value: Double
-    let color: Color
-}
-
-let sampleData = [
-            BarData(label: "Seg", value: 50, color: .blue),
-            BarData(label: "Ter", value: 80, color: .green),
-            BarData(label: "Qua", value: 30, color: .red),
-            BarData(label: "Qui", value: 60, color: .orange),
-            BarData(label: "Sex", value: 90, color: .purple)
-        ]
 
 struct HomeView: View {
     let sampleGadgets = [
-        Gadget(title: "Leitura", description: "Acompanhe sua leitura e progresso atual", icon: "books.vertical.fill", color: .blue),
-        Gadget(title: "Seu progresso", description: "Acompanhe agora sua posição no ranking", icon: "brain.head.profile", color: .green),
-        Gadget(title: "Doe cultura", description: "Participe do programa de doação de livros!", icon: "heart.fill", color: .orange)
+        Gadget(title: "Leitura", description: "Acompanhe sua leitura e progresso atual", icon: "books.vertical.fill", color: Color(hex: "FFD9CF")),
+        Gadget(title: "Constância", description: "Acompanhe agora seu empenho diário!", icon: "flame.fill", color: Color(hex: "FFD9CF"))
     ]
     
     var body: some View {
@@ -168,14 +111,15 @@ struct HomeView: View {
             ScrollView{
                 HStack {
                     Text("Resumo")
-                        .font(.system(size: 30, weight: .semibold))
+                        .font(.title)
+                        .fontWeight(.semibold)
                     Spacer()
                 }
 //                Spacer()
                 .padding()
                 .padding(.horizontal)
                 
-                Spacer(minLength: -5)
+                Spacer(minLength: -4)
                 
                 
                 // Carrossel corrigido
@@ -189,44 +133,24 @@ struct HomeView: View {
                     .frame(height: 200)    // Altura fixa para o conteúdo
                 }
                 .frame(height: 220)        // Altura fixa para o ScrollView
-                VStack {
-                    HStack {
-                        Text("Grupos")
-                            .font(.system(size: 25, weight: .semibold))
-                        Spacer()
-                        Text("Veja todos")
-                            .font(.system(size: 12, weight: .light))
-                            .foregroundColor(.blue)
-                            .padding()
-                    }
-                }
-                .padding()
-                .padding(.horizontal)
+                ListCard(title:"Grupos", sub: "Leia e discuta com seus amigos", GroupBook: ["Faz o urro":"Shreck", "Fãs do Damon":"TVD", "Self Assestment":"Mente milionaria"])
                 
-                FakeListStructure(book: ["Shreck", "TVD", "Faz o urro"])
-                
-                TitleStructure(title: "Constância", sub:"Ver detalhes")
-                
-                Spacer(minLength: -40)
-
-                SimpleBarChart(data: sampleData)
-                    .frame(height: 300)
-                    .padding()
                 
                 VStack{
                     
-                    Spacer(minLength: -40)
+//                    Spacer(minLength: -)
                     
                     TitleStructure(title: "Comentários", sub: "Veja todos")
                     
                     FakeListStructure(book: ["O Shreck não faz o urro", "Gato de botas é zika do baile", "Lord farcry é poggers"])
                 }
                 
-            VStack{
-                InfoCard(Up:"Teste", Down: "Teste")
-                
-                ListCard(title: "Titulo Seção", book: ["L1","L2","L3"])
-                }
+//            VStack{
+//                InfoCard(Up:"Teste", Down: "Teste")
+//
+//                ListCard(title: "Titulo Seção", book: ["L1","L2","L3"])
+//                Spacer()
+//                }
                     
             }
             
@@ -243,3 +167,6 @@ struct HomeView_Previews: PreviewProvider {
 }
 
 
+
+// shift + command + k - resetar, rebuild e limpeza de cache
+// botao direito + extract = cria struct com funcao selecionada
