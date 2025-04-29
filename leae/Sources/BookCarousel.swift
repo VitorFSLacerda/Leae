@@ -36,7 +36,6 @@ struct BookCarousel: View {
 	var body: some View {
 		VStack(alignment: .leading, spacing: Spacing.titleSepBody) {
 			Text(header)
-				.frame(width: TitleBoxSize.sectionHeaderWidth, height: TitleBoxSize.sectionHeaderHeight, alignment: .leading)
 				.font(.title2)
 				.foregroundColor(.textPrimary)
 				.lineLimit(LineLimit.sectionHeader)
