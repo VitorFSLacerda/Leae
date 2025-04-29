@@ -8,7 +8,7 @@ struct Padding {
 // MARK: - Spacing Values
 struct Spacing {
 	static let betweenSections: CGFloat = 16
-	static let betweenItems: CGFloat = 10
+	static let betweenItems: CGFloat = 15
 	static let titleSepBody: CGFloat = 12
 	static let bookcoverSepTitle: CGFloat = 5
 }
@@ -50,9 +50,12 @@ struct CardSize {
 struct TitleBoxSize {
 	static let smallWidth: CGFloat = 85
 	static let smallHeight: CGFloat = 32
+	static let sectionHeaderWidth: CGFloat = 351
+	static let sectionHeaderHeight: CGFloat = 28
 }
 
 // MARK: Line Limit Values
 struct LineLimit {
-	static let bookTitle: Int = 85
+	static let bookTitle: Int = 2
+	static let sectionHeader: Int = 1
 }
