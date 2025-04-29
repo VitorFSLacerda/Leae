@@ -22,22 +22,22 @@ struct CornerRadius {
 
 // MARK: - Color Values
 extension Color {
-	static let accentHighlight = Color("Color/Accent/Highlight")
-	static let backgroundBase = Color("Color/Background/Base")
-	static let backgroundCard = Color("Color/Background/Card")
-	static let backgroundMuted = Color("Color/Background/Muted")
-	static let borderDefault = Color("Color/Border/Default")
-	static let feedbackError = Color("Color/Feedback/Error")
-	static let feedbackSuccess = Color("Color/Feedback/Success")
-	static let feedbackWarning = Color("Color/Feedback/Warning")
-	static let primaryDefault = Color("Color/Primary/Default")
-	static let primaryHover = Color("Color/Primary/Hover")
-	static let primaryMuted = Color("Color/Primary/Muted")
-	static let secundaryBackground = Color("Color/Secundary/Background")
-	static let secundaryDefault = Color("Color/Secundary/Default")
-	static let textMuted = Color("Color/Text/Muted")
-	static let textPrimary = Color("Color/Text/Primary")
-	static let textSecundary = Color("Color/Text/Secundary")
+	static let accentHighlight = Color("Highlight")
+	static let backgroundBase = Color("Base")
+	static let backgroundCard = Color("Card")
+	static let backgroundMuted = Color("BackgroundMuted")
+	static let borderDefault = Color("BorderDefault")
+	static let feedbackError = Color("Error")
+	static let feedbackSuccess = Color("Success")
+	static let feedbackWarning = Color("Warning")
+	static let primaryDefault = Color("PrimaryDefault")
+	static let primaryHover = Color("Hover")
+	static let primaryMuted = Color("PrimaryMuted")
+	static let secundaryBackground = Color("Background")
+	static let secundaryDefault = Color("SecundaryDefault")
+	static let textMuted = Color("TextMuted")
+	static let textPrimary = Color("Primary")
+	static let textSecundary = Color("Secundary")
 }
 
 // MARK: Card Size Values
