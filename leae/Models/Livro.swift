@@ -1,6 +1,6 @@
 import Foundation
 
-class Livro {
+class Livro: Codable {
     
     private var _titulo: String
     private var _autor: String

@@ -1,6 +1,6 @@
 import Foundation
 
-class Grupo {
+class Grupo: Codable {
     
     private var _livroGrupo: Livro
     private var _usuariosGrupo: [Usuario]

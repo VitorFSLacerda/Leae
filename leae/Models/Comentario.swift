@@ -1,6 +1,6 @@
 import Foundation
 
-class Comentario {
+class Comentario: Codable {
     
     private var _livro: Livro
     private var _usuario: Usuario
