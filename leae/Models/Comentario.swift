@@ -1,7 +1,8 @@
 import Foundation
 
-class Comentario {
+class Comentario: Identifiable {
     
+	private let _id = UUID()
     private var _livro: Livro
     private var _usuario: Usuario
     private var _curtidas: Int
@@ -16,7 +17,13 @@ class Comentario {
         self._curtidas = curtidas
         self._comentarios = comentarios
     }
+	
+	
+	var id: UUID {
+		get { return _id }
+	}
     
+	
     var livro: Livro {
         get { return _livro }
         set { _livro = newValue }

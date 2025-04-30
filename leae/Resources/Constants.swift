@@ -3,6 +3,7 @@ import SwiftUI
 // MARK: - Padding Values
 struct Padding {
 	static let mainScreen: CGFloat = 20
+	static let small: CGFloat = 6 // card internal padding
 }
 
 // MARK: - Spacing Values
@@ -10,7 +11,7 @@ struct Spacing {
 	static let betweenSections: CGFloat = 16
 	static let betweenItems: CGFloat = 15
 	static let titleSepBody: CGFloat = 12
-	static let bookcoverSepTitle: CGFloat = 5
+	static let small: CGFloat = 5 // Book cover - Title, username - review body
 }
 
 // MARK: - Corner Radius
@@ -42,14 +43,18 @@ extension Color {
 
 // MARK: Card Size Values
 struct CardSize {
-	static let smallWidth: CGFloat = 85
-	static let smallHeight: CGFloat = 130
+	static let mediumWidth: CGFloat = 85
+	static let mediumHeight: CGFloat = 130
+	static let smallWidth: CGFloat = 78
+	static let smallHeight: CGFloat = 122
 }
 
 // MARK: Title Box Size Values
 struct TitleBoxSize {
 	static let smallWidth: CGFloat = 85
 	static let smallHeight: CGFloat = 32
+	static let reviewCardWidth: CGFloat = 174
+	static let reviewCardHeight: CGFloat = 88
 	static let sectionHeaderWidth: CGFloat = 351
 	static let sectionHeaderHeight: CGFloat = 28
 }
@@ -58,4 +63,5 @@ struct TitleBoxSize {
 struct LineLimit {
 	static let bookTitle: Int = 2
 	static let sectionHeader: Int = 1
+	static let commentCard: Int = 4
 }
