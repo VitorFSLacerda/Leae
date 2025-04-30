@@ -44,11 +44,14 @@ struct ConstanciaPresenter<Content: View>: UIViewControllerRepresentable {
 }
 
 struct CustomConstanciaView: View {
-    let dias = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sab", "Dom"]
+    let dias = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"]
     
     var body: some View {
         VStack{
-            HStack {
+            HStack(alignment: .center, spacing: 0) {
+                Image(systemName: "chevron.backward")
+                    .foregroundColor(Color("Hover"))
+                    .offset(y: 15)
                 Text("Cancelar")
                     .font(
                         Font.custom("SF Pro Text", size: 15)
@@ -57,6 +60,7 @@ struct CustomConstanciaView: View {
                     .multilineTextAlignment(.center)
                     .foregroundColor(Color("Hover"))
                     .frame(maxWidth: .infinity, alignment: .leading)
+                    .offset(y: 15)
                 Text("Constância")
                     .font(
                         Font.custom("SF Pro Text", size: 20)
@@ -65,26 +69,35 @@ struct CustomConstanciaView: View {
                     .multilineTextAlignment(.center)
                     .foregroundColor(Color("Highlight"))
                     .frame(maxWidth: .infinity, alignment: .center)
-                    .offset(x: -85)
+                    .offset(x: -90, y: 15)
             }
             .frame(width: .infinity, height: 30, alignment: .center)
             .padding(5)
             VStack{
-                Rectangle()
-                    .foregroundColor(.clear)
-                    .frame(width: 344, height: 100)
-                    .background(Color("Background"))
-                    .cornerRadius(10)
-                    .padding(5)
-                Rectangle()
-                    .foregroundColor(.clear)
-                    .frame(width: 344, height: 260)
-                    .background(Color("Background"))
-                    .cornerRadius(10)
+                ZStack {
+                    Rectangle()
+                        .foregroundColor(.clear)
+                        .frame(width: 344, height: 140)
+                        .background(Color("Background"))
+                        .cornerRadius(10)
+                        .padding()
+                    Text("Esta Semana")
+                        .foregroundColor(Color("Highlight"))
+                }
+                ZStack {
+                    Rectangle()
+                        .foregroundColor(.clear)
+                        .frame(width: 344, height: 300)
+                        .background(Color("Background"))
+                        .cornerRadius(10)
+                    Text("Ofensivas Atuais")
+                        .foregroundColor(Color("Highlight"))
+                }
             }
-            .padding(5)
+            Spacer().frame(height: 20)
             ScrollView(.horizontal){
-                HStack(spacing: 5) {
+                HStack{
+                    Spacer().frame(width: 10)
                     Rectangle()
                         .foregroundColor(.clear)
                         .frame(width: 324, height: 185)
@@ -98,8 +111,9 @@ struct CustomConstanciaView: View {
                         .cornerRadius(10)
                 }
             }
+            Spacer()
         }
-        .padding()
+        .padding(10)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color("Base"))
         Spacer()
