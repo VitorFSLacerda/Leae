@@ -21,6 +21,7 @@
 		E5BD7F7B2DB7E64800274842 /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BD7F7A2DB7E64800274842 /* Usuario.swift */; };
 		E5BD7F7D2DB7E76700274842 /* Grupo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BD7F7C2DB7E76700274842 /* Grupo.swift */; };
 		E5BD7F7F2DB7E77200274842 /* Livro.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BD7F7E2DB7E77200274842 /* Livro.swift */; };
+		E5DC5C392DC0FD540023E583 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DC5C382DC0FD540023E583 /* Constants.swift */; };
 		E5FF8A1F2DB9034D00B8F051 /* Missao.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FF8A1E2DB9034D00B8F051 /* Missao.swift */; };
 		E5FF8A242DB92D0000B8F051 /* Comentario.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FF8A232DB92D0000B8F051 /* Comentario.swift */; };
 /* End PBXBuildFile section */
@@ -60,6 +61,7 @@
 		E5BD7F7A2DB7E64800274842 /* Usuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
 		E5BD7F7C2DB7E76700274842 /* Grupo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grupo.swift; sourceTree = "<group>"; };
 		E5BD7F7E2DB7E77200274842 /* Livro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Livro.swift; sourceTree = "<group>"; };
+		E5DC5C382DC0FD540023E583 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E5FF8A1E2DB9034D00B8F051 /* Missao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Missao.swift; sourceTree = "<group>"; };
 		E5FF8A232DB92D0000B8F051 /* Comentario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comentario.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -152,6 +154,7 @@
 		E547B5CD2DAD529B00B04FC0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E5DC5C382DC0FD540023E583 /* Constants.swift */,
 				E559393A2DAFCF90004668AD /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -314,6 +317,7 @@
 				E5BD7F7F2DB7E77200274842 /* Livro.swift in Sources */,
 				E40C240C2DBFB3AC005CFC02 /* ViewAtualizacao.swift in Sources */,
 				E5BD7F7D2DB7E76700274842 /* Grupo.swift in Sources */,
+				E5DC5C392DC0FD540023E583 /* Constants.swift in Sources */,
 				E5BD7F7B2DB7E64800274842 /* Usuario.swift in Sources */,
 				E58D34E02DBA5FAE003CB7B0 /* ViewModelUsuario.swift in Sources */,
 				E547B5D52DAD541000B04FC0 /* ViewMissoes.swift in Sources */,
