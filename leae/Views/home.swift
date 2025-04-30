@@ -60,6 +60,7 @@ struct GadgetCarousel: View {
 
 struct TabBar: View {
     @State var selectedTab = 0
+    let isViewActive = false
     var body: some View{
         
         TabView{
@@ -101,82 +102,75 @@ struct TabBar: View {
 
 
 struct HomeView: View {
-    @State var modalVisible = false
+    @State private var modalVisible = false
+    @State private var showGroupModal = false
     
     let sampleGadgets = [
         Gadget(title: "Leitura", description: "Acompanhe sua leitura e progresso atual", icon: "books.vertical.fill", color: Color(hex: "FFD9CF")),
         Gadget(title: "Constância", description: "Acompanhe agora seu empenho diário!", icon: "flame.fill", color: Color(hex: "FFD9CF"))
     ]
     var body: some View {
-        VStack{
-            ScrollView{
-                HStack {
-                    Text("Resumo")
-                        .font(.title)
-                        .fontWeight(.semibold)
-                    Spacer()
-                }
-//                Spacer()
-                .padding()
-                .padding(.horizontal)
-                
-                Spacer(minLength: -4)
-                
-                
-                // Carrossel corrigido
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 20) {
-                        ForEach(sampleGadgets) { gadget in
-                            GadgetCard(gadget: gadget)
-                        }
-                    }
-                    .padding(.horizontal)  // Adiciona padding nas laterais
-                    .frame(height: 200)    // Altura fixa para o conteúdo
-                }
-                .frame(height: 220)        // Altura fixa para o ScrollView
-                
-                GroupModal(showModal: $modalVisible)
-                
-                ListCard(title:"Grupos", sub: "Leia e discuta com seus amigos", GroupBook: ["Faz o urro":"Shreck", "Fãs do Damon":"TVD", "Self Assestment":"Mente milionaria"])
-                    .onTapGesture{withAnimation { modalVisible = true}}
-                    .sheet(isPresented: $modalVisible) {
-                        VStack {
-                            Text("Conteúdo do Modal")
-                            Button("Fechar") {
-                                modalVisible = false
+        NavigationView{
+            VStack{
+                ScrollView{
+                    // Carrossel corrigido
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 20) {
+                            ForEach(sampleGadgets) { gadget in
+                                GadgetCard(gadget: gadget)
                             }
                         }
-                        .padding()
+                        .padding(.horizontal)  // Adiciona padding nas laterais
+                        .frame(height: 200)    // Altura fixa para o conteúdo
                     }
-                
-                
-                VStack{
+                    .frame(height: 220)        // Altura fixa para o ScrollView
                     
-//                    Spacer(minLength: -)
+                    //                NavigationView{
+                    ZStack{
+                        ListCard(title:"Grupos",
+                                 sub: "Leia e discuta com seus amigos",
+                                 GroupBook: ["Faz o urro":"Shreck",
+                                             "Fãs do Damon":"TVD",
+                                             "Self Assestment":"Mente milionaria"])
+                            .onTapGesture{
+                                showGroupModal = true
+                            }
+                    }
+                    .background(
+                        NavigationLink(
+                            isActive: $showGroupModal,
+                            destination: {
+                                GroupModal()
+                            },
+                            label: { EmptyView() }
+                        )
+                            .hidden()
+                            .frame(width: 0, height: 0)
+                    )
+                    //                }
+                    VStack{
+                        
+                        //                    Spacer(minLength: -)
+                        
+                        TitleStructure(title: "Comentários")
+                        
+                        Spacer(minLength: -15)
+                        //                    FakeListStructure(book: ["O Shreck não faz o urro", "Gato de botas é zika do baile", "Lord farcry é poggers"])
+                        
+                        Comments(UserandComment:["@Felipe__alberto":"Não acredito que fulano fez ISSO. Tô revoltado e ainda faltam 200 páginas 😭","@Ferrari":"Li por indicação daqui e amei! Que comunidade maravilhosa!","@Vitao":"Esse final acabou comigo 🥲 Alguém mais aí precisando de terapia depois dessa leitura?","@ErikaHacimoto":"Li por indicação daqui e amei! Que comunidade maravilhosa!","@Rugs":"SHRECK FEZ O URROOOOOOOOO"])
+                    }
                     
-                    TitleStructure(title: "Comentários")
-                    
-                    Spacer(minLength: -15)
-//                    FakeListStructure(book: ["O Shreck não faz o urro", "Gato de botas é zika do baile", "Lord farcry é poggers"])
-                    
-                    Comments(UserandComment:["@Felipe__alberto":"Não acredito que fulano fez ISSO. Tô revoltado e ainda faltam 200 páginas 😭","@Ferrari":"Li por indicação daqui e amei! Que comunidade maravilhosa!","@Vitao":"Esse final acabou comigo 🥲 Alguém mais aí precisando de terapia depois dessa leitura?","@ErikaHacimoto":"Li por indicação daqui e amei! Que comunidade maravilhosa!","@Rugs":"SHRECK FEZ O URROOOOOOOOO"])
                 }
-                
-//            VStack{
-//                InfoCard(Up:"Teste", Down: "Teste")
-//
-//                ListCard(title: "Titulo Seção", book: ["L1","L2","L3"])
-//                Spacer()
-//                }
-                    
-            }
-            
+                .navigationBarTitle("Resumo")
 
-//            TabBar()
-            
+            }
         }
+        
+//        .navigationViewStyle(.stack)
+//        .ignoresSafeArea(.all, edges: .top)
     }
 }
+
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         TabBar()
