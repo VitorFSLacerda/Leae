@@ -38,7 +38,6 @@ extension Color {
 
 struct TitleStructure: View {
     let title: String  // No default value, must be provided when creating the view
-    let sub: String
     
     var body: some View {
         VStack {
@@ -47,11 +46,6 @@ struct TitleStructure: View {
                     .font(.title)
                     .fontWeight(.medium)
                 Spacer()
-                Text(sub)
-                    .font(.footnote)
-                    .fontWeight(.light)
-                    .foregroundColor(.blue)
-                    .padding()
             }
         }
         .padding()
@@ -118,6 +112,49 @@ struct InfoCard: View{
 }
 
 // chamada: InfoCard(Up: "Titulo", Down: "Descrição")
+
+struct Comments: View {
+    let UserandComment: [String: String]
+    
+    var body: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 14) {
+                ForEach(Array(UserandComment.keys.sorted()), id: \.self) { user in
+                    if let comment = UserandComment[user] {
+                        ZStack(alignment: .topLeading) {
+                            RoundedRectangle(cornerRadius: 6)
+                                .border(Color(hex: "FFD9CF"), width: 2)
+                                .cornerRadius(4)
+                                .foregroundColor(.white)
+                                .frame(width: 362, height: 140)
+                                .shadow(color: .black.opacity(0.2), radius: 7, x: 3, y: 1)
+                            
+                            VStack(alignment: .leading, spacing: 12) {
+                                Text(user)
+                                    .font(.title2)
+                                    .fontWeight(.medium)
+                                    .foregroundColor(.black)
+                                Text(comment)
+                                    .font(.body)
+                                    .fontWeight(.regular)
+                                    .foregroundColor(.black.opacity(0.8))
+                                    .fixedSize(horizontal: false, vertical: true)
+                                    .lineLimit(nil)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                            }
+                            .padding()
+                        }
+                        .frame(width: 362, height: 140)
+                        .padding(.vertical)
+                    }
+                }
+            }
+            .padding(.horizontal)
+        }
+    }
+}
+
+// chamada: Comments(UserandComment: ["User":"Comment", "U2":"C2", "U3":"C3", ...])
 
 struct ListCard: View {
     let title: String
@@ -270,4 +307,5 @@ let sampleData = [
 //
 //
 //ESTRUTURA DE GRAFICO DE BARRAS PARA CONSTANCIA
+
 

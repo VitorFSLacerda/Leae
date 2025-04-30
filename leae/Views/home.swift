@@ -101,11 +101,12 @@ struct TabBar: View {
 
 
 struct HomeView: View {
+    @State var modalVisible = false
+    
     let sampleGadgets = [
         Gadget(title: "Leitura", description: "Acompanhe sua leitura e progresso atual", icon: "books.vertical.fill", color: Color(hex: "FFD9CF")),
         Gadget(title: "Constância", description: "Acompanhe agora seu empenho diário!", icon: "flame.fill", color: Color(hex: "FFD9CF"))
     ]
-    
     var body: some View {
         VStack{
             ScrollView{
@@ -133,16 +134,32 @@ struct HomeView: View {
                     .frame(height: 200)    // Altura fixa para o conteúdo
                 }
                 .frame(height: 220)        // Altura fixa para o ScrollView
+                
+                GroupModal(showModal: $modalVisible)
+                
                 ListCard(title:"Grupos", sub: "Leia e discuta com seus amigos", GroupBook: ["Faz o urro":"Shreck", "Fãs do Damon":"TVD", "Self Assestment":"Mente milionaria"])
+                    .onTapGesture{withAnimation { modalVisible = true}}
+                    .sheet(isPresented: $modalVisible) {
+                        VStack {
+                            Text("Conteúdo do Modal")
+                            Button("Fechar") {
+                                modalVisible = false
+                            }
+                        }
+                        .padding()
+                    }
                 
                 
                 VStack{
                     
 //                    Spacer(minLength: -)
                     
-                    TitleStructure(title: "Comentários", sub: "Veja todos")
+                    TitleStructure(title: "Comentários")
                     
-                    FakeListStructure(book: ["O Shreck não faz o urro", "Gato de botas é zika do baile", "Lord farcry é poggers"])
+                    Spacer(minLength: -15)
+//                    FakeListStructure(book: ["O Shreck não faz o urro", "Gato de botas é zika do baile", "Lord farcry é poggers"])
+                    
+                    Comments(UserandComment:["@Felipe__alberto":"Não acredito que fulano fez ISSO. Tô revoltado e ainda faltam 200 páginas 😭","@Ferrari":"Li por indicação daqui e amei! Que comunidade maravilhosa!","@Vitao":"Esse final acabou comigo 🥲 Alguém mais aí precisando de terapia depois dessa leitura?","@ErikaHacimoto":"Li por indicação daqui e amei! Que comunidade maravilhosa!","@Rugs":"SHRECK FEZ O URROOOOOOOOO"])
                 }
                 
 //            VStack{
@@ -170,3 +187,4 @@ struct HomeView_Previews: PreviewProvider {
 
 // shift + command + k - resetar, rebuild e limpeza de cache
 // botao direito + extract = cria struct com funcao selecionada
+

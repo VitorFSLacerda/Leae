@@ -14,7 +14,7 @@ struct ContentView: View {
 //            Text("Leae")
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color("laranja"))
+        .background(Color("Hover"))
         .ignoresSafeArea()
     }
 }
