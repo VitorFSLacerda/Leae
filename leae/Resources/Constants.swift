@@ -3,7 +3,7 @@ import SwiftUI
 // MARK: - Padding Values
 struct Padding {
 	static let mainScreen: CGFloat = 20
-	static let small: CGFloat = 6 // card internal padding
+	static let small: CGFloat = 8 // card internal padding
 }
 
 // MARK: - Spacing Values
@@ -16,8 +16,8 @@ struct Spacing {
 
 // MARK: - Corner Radius
 struct CornerRadius {
-	static let small: CGFloat = 4
-	static let medium: CGFloat = 8
+	static let small: CGFloat = 6
+	static let medium: CGFloat = 10
 	static let large: CGFloat = 12
 }
 
