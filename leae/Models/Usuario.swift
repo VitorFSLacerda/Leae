@@ -25,6 +25,18 @@ class Usuario: Codable {
     }
 
     // Inicializador padrão
+class Usuario {
+    
+	private var _foto: String?
+	private var _apelido: String
+	private var _nome: String?
+	private var _email: String?
+	private var _senha: String?
+	private var _comentarios: [Comentario] = []
+	private var _livroAtual: Livro?
+	private var _gruposUsuario: [Grupo] = []
+	private var _missoes: [Missao] = []
+    
     init(foto: String, apelido: String, nome: String, email: String, senha: String, livroAtual: Livro, gruposUsuario: [Grupo], missoes: [Missao], comentarios: [Comentario]) {
         self._foto = foto
         self._apelido = apelido
@@ -36,6 +48,7 @@ class Usuario: Codable {
         self._missoes = missoes
         self._comentarios = comentarios
     }
+<<<<<<< HEAD
 
     // Decodificação
     required init(from decoder: Decoder) throws {
@@ -70,12 +83,24 @@ class Usuario: Codable {
         get { return _foto }
         set { _foto = newValue }
     }
+=======
+	
+	init(apelido: String) {
+		self._apelido = apelido
+	}
+    
+	var foto: String? {
+		get { return _foto }
+		set { _foto = newValue }
+	}
+>>>>>>> 5d8b884346fe7b12397b8439f8cdd186c1be5b8e
 
-    var apelido: String {
-        get { return _apelido }
-        set { _apelido = newValue }
-    }
+	var apelido: String {
+		get { return _apelido }
+		set { _apelido = newValue }
+	}
 
+<<<<<<< HEAD
     var nome: String {
         get { return _nome }
         set { _nome = newValue }
@@ -110,4 +135,41 @@ class Usuario: Codable {
         get { return _comentarios }
         set { _comentarios = newValue }
     }
+=======
+	var nome: String? {
+		get { return _nome }
+		set { _nome = newValue }
+	}
+
+	var email: String? {
+		get { return _email }
+		set { _email = newValue }
+	}
+
+	var senha: String? {
+		get { return _senha }
+		set { _senha = newValue }
+	}
+
+	var comentarios: [Comentario] {
+		get { return _comentarios }
+		set { _comentarios = newValue }
+	}
+
+
+	var livroAtual: Livro? {
+		get { return _livroAtual }
+		set { _livroAtual = newValue }
+	}
+
+	var gruposUsuario: [Grupo] {
+		get { return _gruposUsuario }
+		set { _gruposUsuario = newValue }
+	}
+
+	var missoes: [Missao] {
+		get { return _missoes }
+		set { _missoes = newValue }
+	}
+>>>>>>> 5d8b884346fe7b12397b8439f8cdd186c1be5b8e
 }

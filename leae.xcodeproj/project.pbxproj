@@ -28,6 +28,7 @@
 		E5BD7F7B2DB7E64800274842 /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BD7F7A2DB7E64800274842 /* Usuario.swift */; };
 		E5BD7F7D2DB7E76700274842 /* Grupo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BD7F7C2DB7E76700274842 /* Grupo.swift */; };
 		E5BD7F7F2DB7E77200274842 /* Livro.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BD7F7E2DB7E77200274842 /* Livro.swift */; };
+		E5DC5C392DC0FD540023E583 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DC5C382DC0FD540023E583 /* Constants.swift */; };
 		E5FF8A1F2DB9034D00B8F051 /* Missao.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FF8A1E2DB9034D00B8F051 /* Missao.swift */; };
 		E5FF8A242DB92D0000B8F051 /* Comentario.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FF8A232DB92D0000B8F051 /* Comentario.swift */; };
 /* End PBXBuildFile section */
@@ -75,6 +76,7 @@
 		E5BD7F7A2DB7E64800274842 /* Usuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
 		E5BD7F7C2DB7E76700274842 /* Grupo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grupo.swift; sourceTree = "<group>"; };
 		E5BD7F7E2DB7E77200274842 /* Livro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Livro.swift; sourceTree = "<group>"; };
+		E5DC5C382DC0FD540023E583 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E5FF8A1E2DB9034D00B8F051 /* Missao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Missao.swift; sourceTree = "<group>"; };
 		E5FF8A232DB92D0000B8F051 /* Comentario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comentario.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,6 +130,8 @@
 		A7F43E022DB96C8500B65246 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				66783E672DC244BB00C791A9 /* ReviewCarousel.swift */,
+				6676A0C92DC1199900B8D88C /* BookCarousel.swift */,
 				E58D34DA2DBA5F90003CB7B0 /* ComponentsStruct.swift */,
 			);
 			path = Sources;
@@ -138,7 +142,6 @@
 			children = (
 				E547B5982DAD298100B04FC0 /* leae */,
 				E547B5972DAD298100B04FC0 /* Products */,
-				E58D34D32DBA5EF2003CB7B0 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -161,6 +164,7 @@
 				A7F43E022DB96C8500B65246 /* Sources */,
 				E547B5CA2DAD524C00B04FC0 /* Views */,
 				E547B5CF2DAD52BA00B04FC0 /* Models */,
+				E58D34DC2DBA5FAE003CB7B0 /* ViewModels */,
 				E547B5CD2DAD529B00B04FC0 /* Resources */,
 				E547B5CC2DAD528D00B04FC0 /* App */,
 			);
@@ -176,6 +180,8 @@
 				E587D8EB2DAE884200E00062 /* ViewPerfilProprio.swift */,
 				E547B5D42DAD541000B04FC0 /* ViewMissoes.swift */,
 				E548B4E72DB7BE8700C566AC /* ViewLivro.swift */,
+				A7F43E302DC1442000B65246 /* GroupModal.swift */,
+				E40C240B2DBFB3AC005CFC02 /* ViewAtualizacao.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -191,6 +197,8 @@
 		E547B5CD2DAD529B00B04FC0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6676A0C72DC117C800B8D88C /* Constants.swift */,
+				E5DC5C382DC0FD540023E583 /* Constants.swift */,
 				E559393A2DAFCF90004668AD /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -200,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				E5BD7F7A2DB7E64800274842 /* Usuario.swift */,
+				66783E692DC2465F00C791A9 /* Resenha.swift */,
 				E5BD7F7C2DB7E76700274842 /* Grupo.swift */,
 				E5FF8A232DB92D0000B8F051 /* Comentario.swift */,
 				E5FF8A1E2DB9034D00B8F051 /* Missao.swift */,
@@ -365,6 +374,7 @@
 				E5BD7F7D2DB7E76700274842 /* Grupo.swift in Sources */,
 				661775C72DBBA58A00926D6E /* ExplorerView.swift in Sources */,
 				E5BD7F7B2DB7E64800274842 /* Usuario.swift in Sources */,
+				66783E6A2DC2465F00C791A9 /* Resenha.swift in Sources */,
 				E58D34E02DBA5FAE003CB7B0 /* ViewModelUsuario.swift in Sources */,
 				E547B5D52DAD541000B04FC0 /* ViewMissoes.swift in Sources */,
 				E587D8EC2DAE884200E00062 /* ViewPerfilProprio.swift in Sources */,
@@ -372,6 +382,7 @@
 				E5FF8A1F2DB9034D00B8F051 /* Missao.swift in Sources */,
 				661775C52DBBA56B00926D6E /* MainAppView.swift in Sources */,
 				E548B4E82DB7BE8700C566AC /* ViewLivro.swift in Sources */,
+				A7F43E312DC1442200B65246 /* GroupModal.swift in Sources */,
 				E58D34E22DBA5FCE003CB7B0 /* home.swift in Sources */,
 				E58D34DF2DBA5FAE003CB7B0 /* ViewModelComentario.swift in Sources */,
 				661775C92DBBA5A500926D6E /* LoginView.swift in Sources */,
