@@ -6,8 +6,8 @@ class Grupo {
     private var _descricao: String
     private var _livro: Livro
     private var _usuarios: [Usuario]
-    private var _imagem: String // Caminho da imagem
-    private var _lider: Usuario? // Novo atributo opcional para o líder
+    private var _imagem: String
+    private var _lider: Usuario?
 
     // Construtor
     init(nome: String, descricao: String, livro: Livro, usuarios: [Usuario] = [], imagem: String) {
@@ -16,7 +16,7 @@ class Grupo {
         self._livro = livro
         self._usuarios = usuarios
         self._imagem = imagem
-        self._lider = nil // Inicialmente, o líder é nulo
+        self._lider = nil
     }
 
     // Getter e Setter para `_nome`
@@ -55,6 +55,15 @@ class Grupo {
         set { _lider = newValue }
     }
 
+    // Mensagem de progresso do líder
+    var mensagemLider: String {
+        if let liderLeu = lider?.progressoEmLivro(livro) {
+            return "\(lider) está liderando: \(liderLeu)% lido!"
+        } else {
+            return "Ninguém começou a leitura ainda."
+        }
+    }
+
     // Método para adicionar um usuário ao grupo
     func adicionarUsuario(_ usuario: Usuario) {
         _usuarios.append(usuario)
@@ -73,7 +82,7 @@ class Grupo {
     func definirLider() {
         _lider = _usuarios.max { u1, u2 in
             // Comparar o progresso de leitura dos usuários no livro do grupo
-            return (u1.livroAtual?.porcentagemLido ?? 0) < (u2.livroAtual?.porcentagemLido ?? 0)
+            return (u1.progressoEmLivro(self.livro) ?? 0) < (u2.progressoEmLivro(self.livro) ?? 0)
         }
     }
 }
