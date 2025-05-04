@@ -107,6 +107,9 @@ class Usuario {
     // Método para adicionar um comentário
     func adicionarComentario(_ comentario: Comentario) {
         _comentarios.append(comentario)
+        _comentarios.sort { c1, c2 in
+            return c1.data > c2.data
+        }
     }
 
     // Método para adicionar um grupo
