@@ -44,6 +44,7 @@ extension Color {
 struct CardSize {
 	static let smallWidth: CGFloat = 85
 	static let smallHeight: CGFloat = 130
+	static let smallSquare: CGFloat = 88
 }
 
 // MARK: Title Box Size Values
