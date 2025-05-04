@@ -32,6 +32,11 @@ class Comentario {
     var data: Date {
         get { return _data }
     }
+
+    var progresso: Int {
+        get { return _progresso }
+        set { _progresso = newValue }
+    }
     
     var curtidas: Int {
         get { return _curtidas }
