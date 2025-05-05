@@ -44,7 +44,6 @@ struct ConstanciaPresenter<Content: View>: UIViewControllerRepresentable {
 }
 
 struct CustomConstanciaView: View {
-    //    let dias = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"]
     @State private var dom: Bool = false
     @State private var seg: Bool = false
     @State private var ter: Bool = false
@@ -84,7 +83,7 @@ struct CustomConstanciaView: View {
                     .multilineTextAlignment(.center)
                     .foregroundColor(Color("Highlight"))
                     .frame(maxWidth: .infinity, alignment: .center)
-                    .offset(x: -90, y: 15)
+                    .offset(x: -95, y: 15)
             }
             .frame(width: .infinity, height: 30, alignment: .center)
             .padding(5)
@@ -375,7 +374,7 @@ struct CustomConstanciaView: View {
                             .foregroundColor(Color("Highlight"))
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .offset(x: 25, y: -30)
-                        Text("\(resultado_rsc)")
+                        Text(resultado_rsc)
                             .font(
                                 Font.custom("SF Pro Text", size: 64)
                                     .weight(.bold)
@@ -392,7 +391,7 @@ struct CustomConstanciaView: View {
                                 .cornerRadius(10)
                                 .padding(5)
                                 .offset(y:70)
-                            Text("\(recorde_sem)")
+                            Text(recorde_sem)
                                 .font(
                                     Font.custom("SF Pro Text", size: 20)
                                         .weight(.bold)
@@ -427,7 +426,7 @@ struct CustomConstanciaView: View {
                             .foregroundColor(Color("Highlight"))
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .offset(x: 25, y: -30)
-                        Text("\(resultado_rdc)")
+                        Text(resultado_rdc)
                             .font(
                                 Font.custom("SF Pro Text", size: 64)
                                     .weight(.bold)
@@ -444,7 +443,7 @@ struct CustomConstanciaView: View {
                                 .cornerRadius(10)
                                 .padding(5)
                                 .offset(y:70)
-                            Text("\(recorde_dias)")
+                            Text(recorde_dias)
                                 .font(
                                     Font.custom("SF Pro Text", size: 20)
                                         .weight(.bold)
