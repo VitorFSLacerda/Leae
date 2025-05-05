@@ -11,6 +11,7 @@ struct Spacing {
 	static let betweenItems: CGFloat = 15
 	static let titleSepBody: CGFloat = 12
 	static let bookcoverSepTitle: CGFloat = 5
+	static let iconBox: CGFloat = 6
 }
 
 // MARK: - Corner Radius
@@ -44,6 +45,7 @@ extension Color {
 struct CardSize {
 	static let smallWidth: CGFloat = 85
 	static let smallHeight: CGFloat = 130
+	static let smallSquare: CGFloat = 88
 }
 
 // MARK: Title Box Size Values
@@ -58,4 +60,5 @@ struct TitleBoxSize {
 struct LineLimit {
 	static let bookTitle: Int = 2
 	static let sectionHeader: Int = 1
+	static let commentCard: Int = 4
 }
