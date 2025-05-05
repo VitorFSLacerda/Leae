@@ -1,19 +1,15 @@
 import Foundation
 
-class Comentario: Codable {
-class Comentario: Identifiable {
-    
-<<<<<<< HEAD
+class Comentario: Codable, Identifiable {
+
 	private let _id = UUID()
     private var _livro: Livro
     private var _usuario: Usuario
-=======
     private let _livro: Livro
     private let _usuario: Usuario
     private let _data: Date // data de postagem
     private let _progresso: Int // progresso na leitura em %
     private var _texto: String
->>>>>>> 4c153f2d282555321b20d8159ac3a9142bdc1a17
     private var _curtidas: Int
     private var _comentarios: [Comentario]
     

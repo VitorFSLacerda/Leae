@@ -1,22 +1,29 @@
 import Foundation
 
-<<<<<<< HEAD
-class Usuario: Codable {
-    private var _foto: String
-=======
 class Usuario {
     // Propriedades privadas
     private var _foto: String?
->>>>>>> 4c153f2d282555321b20d8159ac3a9142bdc1a17
     private var _apelido: String
     private var _nome: String
     private var _email: String
     private var _senha: String
     private var _comentarios: [Comentario]
-<<<<<<< HEAD
-    private var _livroAtual: Livro
-    private var _gruposUsuario: [Grupo]
-    private var _missoes: [Missao]
+    private var _leituras: [Livro: Int]
+    private var _livroAtual: Livro?
+    private var _grupos: [Grupo]
+
+    // Construtor
+    init(apelido: String, nome: String, email: String, senha: String) {
+        self._foto = nil
+        self._apelido = apelido
+        self._nome = nome
+        self._email = email
+        self._senha = senha
+        self._comentarios = []
+        self._leituras = [:]
+        self._livroAtual = nil
+        self._grupos = []
+    }
 
     // Enum para definir as chaves de codificação/decodificação
     private enum CodingKeys: String, CodingKey {
@@ -30,42 +37,6 @@ class Usuario {
         case gruposUsuario = "_gruposUsuario"
         case missoes = "_missoes"
     }
-
-    // Inicializador padrão
-class Usuario {
-    
-	private var _foto: String?
-	private var _apelido: String
-	private var _nome: String?
-	private var _email: String?
-	private var _senha: String?
-	private var _comentarios: [Comentario] = []
-	private var _livroAtual: Livro?
-	private var _gruposUsuario: [Grupo] = []
-	private var _missoes: [Missao] = []
-    
-    init(foto: String, apelido: String, nome: String, email: String, senha: String, livroAtual: Livro, gruposUsuario: [Grupo], missoes: [Missao], comentarios: [Comentario]) {
-        self._foto = foto
-=======
-    private var _leituras: [Livro: Int]
-    private var _livroAtual: Livro?
-    private var _grupos: [Grupo]
-
-    // Construtor
-    init(apelido: String, nome: String, email: String, senha: String) {
-        self._foto = nil
->>>>>>> 4c153f2d282555321b20d8159ac3a9142bdc1a17
-        self._apelido = apelido
-        self._nome = nome
-        self._email = email
-        self._senha = senha
-        self._comentarios = []
-        self._leituras = [:]
-        self._livroAtual = nil
-        self._grupos = []
-    }
-<<<<<<< HEAD
-<<<<<<< HEAD
 
     // Decodificação
     required init(from decoder: Decoder) throws {
@@ -95,17 +66,11 @@ class Usuario {
         try container.encode(_missoes, forKey: .missoes)
     }
 
-    // Getters e setters...
-    var foto: String {
-=======
-
     // Getter e Setter para `_foto`
     var foto: String? {
->>>>>>> 4c153f2d282555321b20d8159ac3a9142bdc1a17
         get { return _foto }
         set { _foto = newValue }
     }
-=======
 	
 	init(apelido: String) {
 		self._apelido = apelido
@@ -115,16 +80,6 @@ class Usuario {
 		get { return _foto }
 		set { _foto = newValue }
 	}
->>>>>>> 5d8b884346fe7b12397b8439f8cdd186c1be5b8e
-
-<<<<<<< HEAD
-	var apelido: String {
-		get { return _apelido }
-		set { _apelido = newValue }
-	}
-
-<<<<<<< HEAD
-=======
     // Getter e Setter para `_apelido`
     var apelido: String {
         get { return _apelido }
@@ -132,33 +87,23 @@ class Usuario {
     }
 
     // Getter e Setter para `_nome`
->>>>>>> 4c153f2d282555321b20d8159ac3a9142bdc1a17
     var nome: String {
         get { return _nome }
         set { _nome = newValue }
     }
 
-<<<<<<< HEAD
-=======
     // Getter e Setter para `_email`
->>>>>>> 4c153f2d282555321b20d8159ac3a9142bdc1a17
     var email: String {
         get { return _email }
         set { _email = newValue }
     }
 
-<<<<<<< HEAD
-=======
     // Getter e Setter para `_senha`
->>>>>>> 4c153f2d282555321b20d8159ac3a9142bdc1a17
     var senha: String {
         get { return _senha }
         set { _senha = newValue }
     }
 
-<<<<<<< HEAD
-    var livroAtual: Livro {
-=======
     // Getter para `_comentarios`
     var comentarios: [Comentario] {
         get { return _comentarios }
@@ -173,27 +118,10 @@ class Usuario {
 
     // Getter para `_livroAtual`
     var livroAtual: Livro? {
->>>>>>> 4c153f2d282555321b20d8159ac3a9142bdc1a17
         get { return _livroAtual }
         set { _livroAtual = newValue }
     }
 
-<<<<<<< HEAD
-    var gruposUsuario: [Grupo] {
-        get { return _gruposUsuario }
-        set { _gruposUsuario = newValue }
-    }
-
-    var missoes: [Missao] {
-        get { return _missoes }
-        set { _missoes = newValue }
-    }
-
-    var comentarios: [Comentario] {
-        get { return _comentarios }
-        set { _comentarios = newValue }
-    }
-=======
 	var nome: String? {
 		get { return _nome }
 		set { _nome = newValue }
@@ -229,9 +157,7 @@ class Usuario {
 		get { return _missoes }
 		set { _missoes = newValue }
 	}
->>>>>>> 5d8b884346fe7b12397b8439f8cdd186c1be5b8e
-}
-=======
+
     // Método para definir o progresso de leitura de um livro
     func atualizarProgresso(livro: Livro, porcentagemLida: Int) {
         guard porcentagemLida >= 0 && porcentagemLida <= 100 else {
@@ -276,4 +202,3 @@ class Usuario {
         _grupos.append(grupo)
     }
 }
->>>>>>> 4c153f2d282555321b20d8159ac3a9142bdc1a17
