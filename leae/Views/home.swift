@@ -109,7 +109,7 @@ struct HomeView: View {
         Gadget(title: "Leitura", description: "Acompanhe sua leitura e progresso atual", icon: "books.vertical.fill", color: Color(hex: "FFD9CF")),
         Gadget(title: "Constância", description: "Acompanhe agora seu empenho diário!", icon: "flame.fill", color: Color(hex: "FFD9CF"))
     ]
-    var body: some View {
+    var body: some View{
         NavigationView{
             VStack{
                 ScrollView{
@@ -140,7 +140,7 @@ struct HomeView: View {
                         NavigationLink(
                             isActive: $showGroupModal,
                             destination: {
-                                GroupModal()
+//                                GroupModal()
                             },
                             label: { EmptyView() }
                         )
