@@ -1,116 +1,206 @@
-
 import SwiftUI
 
-struct ViewLivro: View {
-    var nomeLivro = "Ainda estou aqui"
-    var nomeEscritor = "Marcelo Rubens Paiva"
-    var nomeAutor = "Mauricio"
+struct LivroView: View {
+    @State private var meu: Bool = false
+    
+    @State private var titulo: String = "Ainda estou aqui"
+    @State private var capa: String = "capa"
+    @State private var autor: String = "Marcelo Rubens Paiva"
+    @State private var sinopse: String = "No início da década de 1970, o Brasil enfrenta o endurecimento da ditadura militar. No Rio de Janeiro, a família Paiva - Rubens, Eunice e seus cinco filhos - vive à beira da praia em uma casa de portas abertas para os amigos. Um dia, Rubens Paiva é levado por militares à paisana e desaparece. Eunice - cuja busca pela verdade sobre o destino de seu marido se estenderia por décadas - é obrigada a se reinventar e traçar um novo futuro para si e seus filhos."
+    
+    @State private var av_5: String = "153"
+    @State private var av_4: String = "120"
+    @State private var av_3: String = "45"
+    @State private var av_2: String = "19"
+    @State private var av_1: String = "28"
+    
     var body: some View {
         ZStack {
-            Color("fundo").ignoresSafeArea()
-            
+            Color("Base").ignoresSafeArea()
             ScrollView{
                 VStack{
-                    
-                    Rectangle()
-                            .fill(Color.black)
-                            .frame(width: 150, height: 250)
+                    VStack{
+                        Image(capa)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 250)
                             .cornerRadius(10)
-                                
-                    Text(nomeLivro).bold()
-                    Text(nomeEscritor)
-                    
-                    Text("Sinopse")
-                        .bold()
-                        .frame(maxWidth: 285, alignment: .leading)
-                    
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 25, style: .continuous)
-                                .fill(Color("laranja"))
-                                .frame(width: 300, height: 180)
-
-                        RoundedRectangle(cornerRadius: 25, style: .continuous)
-                            .fill(Color("fundo"))
-                            .frame(width: 295, height: 175)
-                        
-                        Text("Texto aqui texto aqui texto aqui texto aquiaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-                            .frame(width: 260, height: 140, alignment: .topLeading)
-                            .multilineTextAlignment(.leading)
-                            .lineLimit(6)
+                        Text(titulo).bold()
+                        Text(autor)
                     }
-                    
-                    HStack(spacing: 100){
-                        Text("Resenhas")
-                            .bold()
-                            .frame(maxWidth: 285, alignment: .leading)
-                        
-                        Text("Ver mais...")
-                            .foregroundColor(Color("laranja"))
-                            .frame(maxWidth: 285, alignment: .leading)
+                    Spacer(minLength: 20)
+                    VStack{
+                        Text("Sinopse")
+                            .fontWeight(.bold)
+                            .font(Font.custom("SF Pro Text", size: 20))
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(Color("Highlight"))
+                            .frame(maxWidth: 305, alignment: .leading)
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 15, style: .continuous)
+                                .fill(Color("Background"))
+                                .frame(width: 344, height: 150)
+                            ScrollView{
+                                Text(sinopse)
+                                    .foregroundColor(Color("Highlight"))
+                                    .frame(width: 300, height: 140, alignment: .leading)
+                                    .multilineTextAlignment(.leading)
+                                    .lineLimit(5)
+                            }
+                        }
                     }
-                    .frame(maxWidth: 285, alignment: .leading)
-                    
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 25)
-                            .fill(Color("bloco"))
-                            .frame(width: 300, height: 180)
-
-                        VStack(alignment: .leading, spacing: 8) {
-                            HStack(spacing: 10) {
-                                Circle()
-                                    .fill(Color("laranja"))
-                                    .frame(width: 40, height: 40)
-
-                                Text(nomeAutor)
-                                    .font(.headline)
-                                    .lineLimit(1)
+                    Spacer(minLength: 20)
+                    VStack{
+                        Text("Avaliações")
+                            .fontWeight(.bold)
+                            .font(Font.custom("SF Pro Text", size: 20))
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(Color("Highlight"))
+                            .frame(maxWidth: 305, alignment: .leading)
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 15, style: .continuous)
+                                .stroke(Color("Hover"))
+                                .frame(width: 340, height: 200)
+                            HStack {
+                                VStack {
+                                    Text("(\(av_5))")
+                                        .font(Font.custom("SF Pro Text", size: 22))
+                                        .multilineTextAlignment(.center)
+                                        .foregroundColor(Color("Highlight"))
+                                        .frame(maxWidth: 80, alignment: .trailing)
+                                        .padding(1)
+                                    Text("(\(av_4))")
+                                        .font(Font.custom("SF Pro Text", size: 22))
+                                        .multilineTextAlignment(.center)
+                                        .foregroundColor(Color("Highlight"))
+                                        .frame(maxWidth: 80, alignment: .trailing)
+                                        .padding(1)
+                                    Text("(\(av_3))")
+                                        .font(Font.custom("SF Pro Text", size: 22))
+                                        .multilineTextAlignment(.center)
+                                        .foregroundColor(Color("Highlight"))
+                                        .frame(maxWidth: 80, alignment: .trailing)
+                                        .padding(1)
+                                    Text("(\(av_2))")
+                                        .font(Font.custom("SF Pro Text", size: 22))
+                                        .multilineTextAlignment(.center)
+                                        .foregroundColor(Color("Highlight"))
+                                        .frame(maxWidth: 80, alignment: .trailing)
+                                        .padding(1)
+                                    Text("(\(av_1))")
+                                        .font(Font.custom("SF Pro Text", size: 22))
+                                        .multilineTextAlignment(.center)
+                                        .foregroundColor(Color("Highlight"))
+                                        .frame(maxWidth: 80, alignment: .trailing)
+                                        .padding(1)
+                                }
+                                Image("Avaliacoes")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 190, height: 190)
                             }
-
-                            Text("Texto aqui texto aqui texto aqui texto aqui")
-                                .multilineTextAlignment(.leading)
-                                .lineLimit(6)
-                            
-                            
-                            
-                            HStack(spacing: 30) {
-                                
-                                    Image(systemName: "heart")
-                                    Image(systemName: "ellipsis.bubble")
-                            }
-                            .offset(y: 35)
-                            
                             
                         }
-                        .offset(y: -20)
-                        .frame(width: 260, alignment: .leading)
-                    
-                }
                         
-        
-                    Text("Avaliações")
-                        .bold()
-                        .frame(maxWidth: 285, alignment: .leading)
-                    
-                    ZStack{
-                        Rectangle()
-                                .fill(Color("bloco"))
-                                .frame(width: 300, height: 180)
-                                .cornerRadius(25)
-                        
-                        
-                        Text("Texto aqui texto aqui texto aqui texto aqui")
                     }
-                    
+                    Spacer(minLength: 40)
+                    VStack{
+                        ListCard_Livro(title:"Grupos", sub: "Leia e discuta com seus amigos", GroupBook: ["Faz o urro":"Shreck", "Fãs do Damon":"TVD", "Self Assestment":"Mente milionaria"])
+                            .frame(width: 344, alignment: .center)
+                    }
+                    Spacer(minLength: 20)
+                    Button(action: { meu.toggle() } ) {
+                        if meu {
+                            Text("Adicionar")
+                                .font(Font.custom("SF Pro Text", size: 18))
+                                .foregroundColor(Color("Highlight"))
+                                .frame(width: 344, height:50)
+                                .background(Color(hex: "#FFAF9A"))
+                                .cornerRadius(100)
+                        } else {
+                            Text("Remover")
+                                .font(Font.custom("SF Pro Text", size: 18))
+                                .foregroundColor(Color("Highlight"))
+                                .frame(width: 344, height:50)
+                                .background(Color(hex: "#F48B8B"))
+                                .cornerRadius(100)
+                        }
+                    }
+                    Spacer()
                 }
-            }.navigationTitle("Livro")
+            }
+            .navigationTitle("Livro")
         }
     }
 }
 
-struct Livro_Previews: PreviewProvider {
+struct LivroPreviews: PreviewProvider {
     static var previews: some View {
         NavigationView{
-            ViewLivro()
+            LivroView()
+        }
+    }
+}
+
+struct ListCard_Livro: View {
+    let title: String
+    let sub: String
+    let GroupBook: [String: String]
+    
+    
+    var body: some View {
+        ZStack(alignment: .topLeading) {
+            // Background card (only one cornerRadius modifier needed)
+            RoundedRectangle(cornerRadius: 20)
+                .foregroundColor(Color("Background"))
+                .frame(width: 344, height: 285)
+                .shadow(color: .black.opacity(0.2), radius: 5, x: 3, y: 0)
+            
+            // Content
+            VStack(alignment: .leading, spacing: 10) {
+                // Title
+                Text(title)
+                    .font(.title)
+                    .fontWeight(.medium)
+                    .foregroundColor(Color("Highlight"))
+                    .padding(.top, 16)
+                    .padding(.horizontal, 20)
+                
+                Text(sub)
+                    .font(.footnote)
+                    .fontWeight(.light)
+                    .foregroundColor(.black.opacity(0.8))
+                    .padding(.top, -5)
+                    .padding(.horizontal, 23)
+                
+                
+                Spacer()
+                
+                // List items
+                VStack(alignment: .leading, spacing: 8) {
+                    ForEach(Array(GroupBook.keys.sorted()), id: \.self) { group in
+                        if let book = GroupBook[group] {
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text(group)
+                                    .font(.system(size: 16, weight: .light))
+                                HStack{
+                                    Text(book)
+                                        .font(.caption)
+                                        .fontWeight(.light)
+                                    //                                HStack{
+                                    Spacer()
+                                    Image(systemName:"chevron.right")
+                                        .foregroundColor(Color("Highlight"))
+                                }
+                            }
+                            Divider()
+                        }
+                    }
+                }
+                .padding(.horizontal, 20)
+                .padding(.bottom, 16)
+            }
+            .frame(width: 343, height: 140, alignment: .topLeading)
         }
     }
 }
