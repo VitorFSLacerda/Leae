@@ -1,16 +1,14 @@
 import Foundation
 
-class Comentario: Codable {
-class Comentario: Identifiable {
+class Comentario: Codable, Identifiable {
     
-	private let _id = UUID()
+    private let _id = UUID()
     private var _livro: Livro
     private var _usuario: Usuario
     private var _curtidas: Int
     private var _comentarios: [Comentario]
     private var _texto: String
     
-
     init(livro: Livro, usuario: Usuario, texto: String, curtidas: Int = 0, comentarios: [Comentario] = []) {
         self._livro = livro
         self._usuario = usuario
@@ -18,13 +16,14 @@ class Comentario: Identifiable {
         self._curtidas = curtidas
         self._comentarios = comentarios
     }
-	
-	
-	var id: UUID {
-		get { return _id }
-	}
     
-	
+    // MARK: - Identifiable
+    var id: UUID {
+        return _id
+    }
+    
+    // MARK: - Propriedades
+    
     var livro: Livro {
         get { return _livro }
         set { _livro = newValue }
@@ -50,18 +49,16 @@ class Comentario: Identifiable {
         set { _texto = newValue }
     }
     
+    // MARK: - Métodos
     
-    // Função para adicionar um comentário à lista de comentários
     func adicionarComentario(_ comentario: Comentario) {
         _comentarios.append(comentario)
     }
     
-    // Função para aumentar a quantidade de curtidas
     func curtir() {
         _curtidas += 1
     }
     
-    // Função para diminuir a quantidade de curtidas
     func descurtir() {
         if _curtidas > 0 {
             _curtidas -= 1

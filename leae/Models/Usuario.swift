@@ -1,15 +1,15 @@
 import Foundation
 
 class Usuario: Codable {
-    private var _foto: String
+    private var _foto: String?
     private var _apelido: String
-    private var _nome: String
-    private var _email: String
-    private var _senha: String
-    private var _comentarios: [Comentario]
-    private var _livroAtual: Livro
-    private var _gruposUsuario: [Grupo]
-    private var _missoes: [Missao]
+    private var _nome: String?
+    private var _email: String?
+    private var _senha: String?
+    private var _comentarios: [Comentario] = []
+    private var _livroAtual: Livro?
+    private var _gruposUsuario: [Grupo] = []
+    private var _missoes: [Missao] = []
 
     // Enum para definir as chaves de codificação/decodificação
     private enum CodingKeys: String, CodingKey {
@@ -24,44 +24,36 @@ class Usuario: Codable {
         case missoes = "_missoes"
     }
 
-    // Inicializador padrão
-class Usuario {
-    
-	private var _foto: String?
-	private var _apelido: String
-	private var _nome: String?
-	private var _email: String?
-	private var _senha: String?
-	private var _comentarios: [Comentario] = []
-	private var _livroAtual: Livro?
-	private var _gruposUsuario: [Grupo] = []
-	private var _missoes: [Missao] = []
-    
-    init(foto: String, apelido: String, nome: String, email: String, senha: String, livroAtual: Livro, gruposUsuario: [Grupo], missoes: [Missao], comentarios: [Comentario]) {
+    // Inicializador principal
+    init(apelido: String) {
+        self._apelido = apelido
+    }
+
+    // Inicializador completo
+    init(foto: String?, apelido: String, nome: String?, email: String?, senha: String?, livroAtual: Livro?, gruposUsuario: [Grupo], missoes: [Missao], comentarios: [Comentario]) {
         self._foto = foto
         self._apelido = apelido
         self._nome = nome
         self._email = email
         self._senha = senha
+        self._comentarios = comentarios
         self._livroAtual = livroAtual
         self._gruposUsuario = gruposUsuario
         self._missoes = missoes
-        self._comentarios = comentarios
     }
-<<<<<<< HEAD
 
     // Decodificação
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        _foto = try container.decode(String.self, forKey: .foto)
+        _foto = try container.decodeIfPresent(String.self, forKey: .foto)
         _apelido = try container.decode(String.self, forKey: .apelido)
-        _nome = try container.decode(String.self, forKey: .nome)
-        _email = try container.decode(String.self, forKey: .email)
-        _senha = try container.decode(String.self, forKey: .senha)
-        _comentarios = try container.decode([Comentario].self, forKey: .comentarios)
-        _livroAtual = try container.decode(Livro.self, forKey: .livroAtual)
-        _gruposUsuario = try container.decode([Grupo].self, forKey: .gruposUsuario)
-        _missoes = try container.decode([Missao].self, forKey: .missoes)
+        _nome = try container.decodeIfPresent(String.self, forKey: .nome)
+        _email = try container.decodeIfPresent(String.self, forKey: .email)
+        _senha = try container.decodeIfPresent(String.self, forKey: .senha)
+        _comentarios = try container.decodeIfPresent([Comentario].self, forKey: .comentarios) ?? []
+        _livroAtual = try container.decodeIfPresent(Livro.self, forKey: .livroAtual)
+        _gruposUsuario = try container.decodeIfPresent([Grupo].self, forKey: .gruposUsuario) ?? []
+        _missoes = try container.decodeIfPresent([Missao].self, forKey: .missoes) ?? []
     }
 
     // Codificação
@@ -79,44 +71,32 @@ class Usuario {
     }
 
     // Getters e setters...
-    var foto: String {
+    var foto: String? {
         get { return _foto }
         set { _foto = newValue }
     }
-=======
-	
-	init(apelido: String) {
-		self._apelido = apelido
-	}
-    
-	var foto: String? {
-		get { return _foto }
-		set { _foto = newValue }
-	}
->>>>>>> 5d8b884346fe7b12397b8439f8cdd186c1be5b8e
 
-	var apelido: String {
-		get { return _apelido }
-		set { _apelido = newValue }
-	}
+    var apelido: String {
+        get { return _apelido }
+        set { _apelido = newValue }
+    }
 
-<<<<<<< HEAD
-    var nome: String {
+    var nome: String? {
         get { return _nome }
         set { _nome = newValue }
     }
 
-    var email: String {
+    var email: String? {
         get { return _email }
         set { _email = newValue }
     }
 
-    var senha: String {
+    var senha: String? {
         get { return _senha }
         set { _senha = newValue }
     }
 
-    var livroAtual: Livro {
+    var livroAtual: Livro? {
         get { return _livroAtual }
         set { _livroAtual = newValue }
     }
@@ -135,41 +115,4 @@ class Usuario {
         get { return _comentarios }
         set { _comentarios = newValue }
     }
-=======
-	var nome: String? {
-		get { return _nome }
-		set { _nome = newValue }
-	}
-
-	var email: String? {
-		get { return _email }
-		set { _email = newValue }
-	}
-
-	var senha: String? {
-		get { return _senha }
-		set { _senha = newValue }
-	}
-
-	var comentarios: [Comentario] {
-		get { return _comentarios }
-		set { _comentarios = newValue }
-	}
-
-
-	var livroAtual: Livro? {
-		get { return _livroAtual }
-		set { _livroAtual = newValue }
-	}
-
-	var gruposUsuario: [Grupo] {
-		get { return _gruposUsuario }
-		set { _gruposUsuario = newValue }
-	}
-
-	var missoes: [Missao] {
-		get { return _missoes }
-		set { _missoes = newValue }
-	}
->>>>>>> 5d8b884346fe7b12397b8439f8cdd186c1be5b8e
 }

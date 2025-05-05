@@ -135,7 +135,7 @@ struct HomeView: View {
                 }
                 .frame(height: 220)        // Altura fixa para o ScrollView
                 
-                GroupModal(showModal: $modalVisible)
+                // GroupModal(showModal: $modalVisible)
                 
                 ListCard(title:"Grupos", sub: "Leia e discuta com seus amigos", GroupBook: ["Faz o urro":"Shreck", "Fãs do Damon":"TVD", "Self Assestment":"Mente milionaria"])
                     .onTapGesture{withAnimation { modalVisible = true}}
@@ -187,4 +187,3 @@ struct HomeView_Previews: PreviewProvider {
 
 // shift + command + k - resetar, rebuild e limpeza de cache
 // botao direito + extract = cria struct com funcao selecionada
-
