@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ViewMissoes: View {
+struct ViewConstancia: View {
     @State private var showSheet = false
     
     var body: some View {
@@ -11,9 +11,9 @@ struct ViewMissoes: View {
     }
 }
 
-struct Missoes_Previews: PreviewProvider {
+struct ConstanciaPreviews: PreviewProvider {
     static var previews: some View {
-        ViewMissoes()
+        ViewConstancia()
     }
 }
 
@@ -44,11 +44,22 @@ struct ConstanciaPresenter<Content: View>: UIViewControllerRepresentable {
 }
 
 struct CustomConstanciaView: View {
-    let dias = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"]
-    @State private var resultado_rdc: String = "01"
-    @State private var resultado_rsc: String = "02"
-    @State private var resultado_dc: String = "038"
-    @State private var resultado_sc: String = "04"
+    //    let dias = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"]
+    @State private var dom: Bool = false
+    @State private var seg: Bool = false
+    @State private var ter: Bool = false
+    @State private var qua: Bool = false
+    @State private var qui: Bool = false
+    @State private var sex: Bool = false
+    @State private var sab: Bool = false
+    
+    @State private var resultado_rdc: String = "000"
+    @State private var resultado_rsc: String = "000"
+    @State private var resultado_dc: String = "000"
+    @State private var resultado_sc: String = "000"
+    
+    @State private var recorde_sem: String = "6 de junho - 2 de setembro"
+    @State private var recorde_dias: String = "6 de junho - 4 de setembro"
     
     var body: some View {
         VStack{
@@ -85,6 +96,172 @@ struct CustomConstanciaView: View {
                         .background(Color("Background"))
                         .cornerRadius(10)
                         .padding()
+                    VStack {
+                        HStack{
+                            VStack {
+                                if dom {
+                                    Image("Streak")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 30, height: 30)
+                                        .offset(y: 20)
+                                    Text("Dom")
+                                        .font(Font.custom("SF Pro Text", size: 20))
+                                        .foregroundColor(Color("Highlight"))
+                                        .offset(y: 15)
+                                } else {
+                                    Image("NoStreak")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 20, height: 20)
+                                        .offset(y: 20)
+                                    Text("Dom")
+                                        .font(Font.custom("SF Pro Text", size: 20))
+                                        .foregroundColor(Color("Highlight"))
+                                        .offset(y: 20)
+                                }
+                            }
+                            VStack {
+                                if seg {
+                                    Image("Streak")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 30, height: 30)
+                                        .offset(y: 20)
+                                    Text("Seg")
+                                        .font(Font.custom("SF Pro Text", size: 20))
+                                        .foregroundColor(Color("Highlight"))
+                                        .offset(y: 15)
+                                } else {
+                                    Image("NoStreak")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 20, height: 20)
+                                        .offset(y: 20)
+                                    Text("Seg")
+                                        .font(Font.custom("SF Pro Text", size: 20))
+                                        .foregroundColor(Color("Highlight"))
+                                        .offset(y: 20)
+                                }
+                            }
+                            VStack {
+                                if ter {
+                                    Image("Streak")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 30, height: 30)
+                                        .offset(y: 20)
+                                    Text("Ter")
+                                        .font(Font.custom("SF Pro Text", size: 20))
+                                        .foregroundColor(Color("Highlight"))
+                                        .offset(y: 15)
+                                } else {
+                                    Image("NoStreak")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 20, height: 20)
+                                        .offset(y: 20)
+                                    Text("Ter")
+                                        .font(Font.custom("SF Pro Text", size: 20))
+                                        .foregroundColor(Color("Highlight"))
+                                        .offset(y: 20)
+                                }
+                            }
+                            VStack {
+                                if qua {
+                                    Image("Streak")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 30, height: 30)
+                                        .offset(y: 20)
+                                    Text("Qua")
+                                        .font(Font.custom("SF Pro Text", size: 20))
+                                        .foregroundColor(Color("Highlight"))
+                                        .offset(y: 15)
+                                } else {
+                                    Image("NoStreak")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 20, height: 20)
+                                        .offset(y: 20)
+                                    Text("Qua")
+                                        .font(Font.custom("SF Pro Text", size: 20))
+                                        .foregroundColor(Color("Highlight"))
+                                        .offset(y: 20)
+                                }
+                            }
+                            VStack {
+                                if qui {
+                                    Image("Streak")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 30, height: 30)
+                                        .offset(y: 20)
+                                    Text("Qui")
+                                        .font(Font.custom("SF Pro Text", size: 20))
+                                        .foregroundColor(Color("Highlight"))
+                                        .offset(y: 15)
+                                } else {
+                                    Image("NoStreak")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 20, height: 20)
+                                        .offset(y: 20)
+                                    Text("Qui")
+                                        .font(Font.custom("SF Pro Text", size: 20))
+                                        .foregroundColor(Color("Highlight"))
+                                        .offset(y: 20)
+                                }
+                            }
+                            VStack {
+                                if sex {
+                                    Image("Streak")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 30, height: 30)
+                                        .offset(y: 20)
+                                    Text("Sex")
+                                        .font(Font.custom("SF Pro Text", size: 20))
+                                        .foregroundColor(Color("Highlight"))
+                                        .offset(y: 15)
+                                } else {
+                                    Image("NoStreak")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 20, height: 20)
+                                        .offset(y: 20)
+                                    Text("Sex")
+                                        .font(Font.custom("SF Pro Text", size: 20))
+                                        .foregroundColor(Color("Highlight"))
+                                        .offset(y: 20)
+                                }
+                            }
+                            VStack {
+                                if sab {
+                                    Image("Streak")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 30, height: 30)
+                                        .offset(y: 20)
+                                    Text("Sab")
+                                        .font(Font.custom("SF Pro Text", size: 20))
+                                        .foregroundColor(Color("Highlight"))
+                                        .offset(y: 15)
+                                } else {
+                                    Image("NoStreak")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 20, height: 20)
+                                        .offset(y: 20)
+                                    Text("Sab")
+                                        .font(Font.custom("SF Pro Text", size: 20))
+                                        .foregroundColor(Color("Highlight"))
+                                        .offset(y: 20)
+                                }
+                            }
+                        }
+                        .padding()
+                    }
                     Text("Esta Semana")
                         .font(
                             Font.custom("SF Pro Text", size: 20)
@@ -96,7 +273,6 @@ struct CustomConstanciaView: View {
                         .offset(x: 30, y: -40)
                 }
                 ZStack {
-                    
                     Rectangle()
                         .foregroundColor(.clear)
                         .frame(width: 344, height: 300)
@@ -125,8 +301,8 @@ struct CustomConstanciaView: View {
                             )
                             .multilineTextAlignment(.leading)
                             .foregroundColor(Color("Highlight"))
-                            .frame(maxWidth: 130, alignment: .leading)
-                            .offset(x: -60, y: 75)
+                            .frame(maxWidth: 130, alignment: .center)
+                            .offset(x: -85, y: 75)
                     }
                     ZStack{
                         Rectangle()
@@ -154,6 +330,11 @@ struct CustomConstanciaView: View {
                             .frame(maxWidth: 130, alignment: .center)
                             .offset(x: 85, y: 75)
                     }
+                    Image("Streak")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 50, height: 50)
+                        .offset(y: -110)
                     Text("Ofensivas Atuais")
                         .font(
                             Font.custom("SF Pro Text", size: 32)
@@ -211,7 +392,7 @@ struct CustomConstanciaView: View {
                                 .cornerRadius(10)
                                 .padding(5)
                                 .offset(y:70)
-                            Text("6 de julho - 4 de setembro")
+                            Text("\(recorde_sem)")
                                 .font(
                                     Font.custom("SF Pro Text", size: 20)
                                         .weight(.bold)
@@ -263,7 +444,7 @@ struct CustomConstanciaView: View {
                                 .cornerRadius(10)
                                 .padding(5)
                                 .offset(y:70)
-                            Text("6 de julho - 4 de setembro")
+                            Text("\(recorde_dias)")
                                 .font(
                                     Font.custom("SF Pro Text", size: 20)
                                         .weight(.bold)
