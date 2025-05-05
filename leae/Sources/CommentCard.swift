@@ -1,17 +1,12 @@
 import SwiftUI
 
-struct CommentCard: View {
+struct CommentOnFeed: View {
 	let comment: Comentario
-	let user = DatabaseManager.shared.getUser()
-
-	var nickname: String = comment.usuario == user ? user?.apelido.append(" (você)") : comment.usuario.apelido
 	
 	var body: some View {
 		VStack {
-			Text(nickname)
-				.font(.subheadline)
-				.fontWeight(.bold)
-				.foregroundColor(.textPrimary)
+			NickAndProgress(comment: comment)
+			
 			HStack {
 				Image(comment.livro.imagemCapa)
 					.resizable()
@@ -20,26 +15,17 @@ struct CommentCard: View {
 					.cornerRadius(CornerRadius.small)
 					.clipped()
 				
-				VStack {
-					Text(comment.texto)
-						.font(.subheadline)
-						.foregroundColor(.textPrimary)
-						.lineLimit(LineLimit.commentCard)
-					
-					HStack {
-						// retirar 12 hardcoded
-						
-						LikesBox(likes: comment.curtidas, font: .caption)
-						SubCommentBox(subcomments: comment.comentarios.count, font: .caption)
-						ProgressBox(progress: comment.progresso, font: .caption)
-					}
+				Text(comment.texto)
+					.font(.subheadline)
+					.foregroundColor(.textPrimary)
+					.lineLimit(LineLimit.commentCard)
 				}
 			}
 		}
 	}
 }
 
-struct CommentCard_Previews: PreviewProvider {
+struct CommentOnFeed_Previews: PreviewProvider {
 	static var previews: some View {
 		let livro1 = Livro(
 			titulo: "SwiftUI Essentials",
@@ -62,6 +48,6 @@ struct CommentCard_Previews: PreviewProvider {
 			texto: "Este livro é incrível! Recomendo a todos que querem aprender SwiftUI."
 		)
 
-		CommentCard(comment: comentario1)
+		CommentOnFeed(comment: comentario1)
 	}
 }

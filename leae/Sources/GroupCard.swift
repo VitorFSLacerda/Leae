@@ -28,9 +28,9 @@ struct GroupCard: View {
 						.lineLimit(1)
 				}
 			}
-
-			//icone de seta para direita
-			//	.foregroundColor(.primaryHover)
+			
+			Image(systemName: "chevron.right")
+				.foregroundColor(.primaryHover)
 		}
 	}
 }

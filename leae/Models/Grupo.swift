@@ -6,6 +6,7 @@ class Grupo {
     private var _descricao: String
     private var _livro: Livro
     private var _usuarios: [Usuario]
+	private var _comentarios: [Comentario]
     private var _imagem: String
     private var _lider: Usuario?
 
@@ -15,6 +16,7 @@ class Grupo {
         self._descricao = descricao
         self._livro = livro
         self._usuarios = usuarios
+		self._comentarios = []
         self._imagem = imagem
         self._lider = nil
     }
@@ -42,6 +44,10 @@ class Grupo {
         get { return _usuarios }
         set { _usuarios = newValue }
     }
+	
+	var comentarios: [Comentario] {
+		get { return _comentarios}
+	}
 
     // Getter e Setter para `_imagem`
     var imagem: String {
