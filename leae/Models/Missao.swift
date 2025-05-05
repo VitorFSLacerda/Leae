@@ -1,4 +1,4 @@
-class Missao {
+class Missao: Codable {
     
     private var _descricao: String
     private var _pontuacao: String
