@@ -130,7 +130,7 @@ struct HomeView: View {
                         ListCard(title:"Grupos",
                                  sub: "Leia e discuta com seus amigos",
                                  GroupBook: ["Faz o urro":"Shreck",
-                                             "Fãs do Damon":"TVD",
+                                             "Fãs do Damons":"TVD",
                                              "Self Assestment":"Mente milionaria"])
                             .onTapGesture{
                                 showGroupModal = true
