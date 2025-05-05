@@ -140,7 +140,7 @@ struct HomeView: View {
                         NavigationLink(
                             isActive: $showGroupModal,
                             destination: {
-//                                GroupModal()
+                                GroupModal()
                             },
                             label: { EmptyView() }
                         )
