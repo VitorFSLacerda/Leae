@@ -2,13 +2,14 @@ import SwiftUI
 
 struct LikesBox: View {
 	let likes: Int
-	let textSize: CFloat
+	let liked: Bool
+	let font: Font?
 	var body: some View {
 		HStack(spacing: Spacing.iconBox) {
-			Text("INSERIR SYSTEMNAME CORAÇÃO")
-				.font(15)
+			Image(systemName: liked ? "heart.fill" : "heart")
+				
 			Text("\(likes)")
-				.font(textSize)
+				.font(font)
 		}
 			.foregroundColor(.accentHighlight)
 	}
@@ -16,13 +17,12 @@ struct LikesBox: View {
 
 struct SubCommentBox: View {
 	let subcomments: Int
-	let textSize: CFloat
+	let font: Font?
 	var body: some View {
 		HStack(spacing: Spacing.iconBox) {
-			Text("INSERIR SYSTEMNAME COMENTARIO")
-				.font(15)
+			Image(systemName: "ellipsis.message")
 			Text("\(subcomments)")
-				.font(textSize)
+				.font(font)
 		}
 			.foregroundColor(.accentHighlight)
 	}
@@ -30,12 +30,12 @@ struct SubCommentBox: View {
 
 struct ProgressBox: View {
 	let progress: Int
-	let textSize: CFloat
+	let font: Font?
 	var body: some View {
 		HStack(spacing: Spacing.iconBox) {
 			// barra de progresso
 			Text("\(progress)%")
-				.font(textSize)
+				.font(font)
 		}
 			.foregroundColor(.accentHighlight)
 	}

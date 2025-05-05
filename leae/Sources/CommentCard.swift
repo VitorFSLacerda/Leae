@@ -6,7 +6,8 @@ struct CommentCard: View {
 	var body: some View {
 		VStack {
 			Text(comment.usuario.nome)
-				.font(15.fontWeight(.bold))
+				.font(.subheadline)
+				.fontWeight(.bold)
 				.foregroundColor(.textPrimary)
 			HStack {
 				Image(comment.livro.imagem)
@@ -18,15 +19,15 @@ struct CommentCard: View {
 				
 				VStack {
 					Text(comment.texto)
-						.font(15)
+						.font(.subheadline)
 						.foregroundColor(.textPrimary)
 						.lineLimit(LineLimit.commentCard)
 					
 					HStack {
 						// retirar 12 hardcoded
-						LikesBox(likes: comment.curtidas, textSize: 12)
-						SubCommentBox(subcomments: comment.comentarios.count, textSize: 12)
-						ProgressBox(progress: comment.progresso, textSize: 12)
+						LikesBox(likes: comment.curtidas, font: .caption)
+						SubCommentBox(subcomments: comment.comentarios.count, font: .caption)
+						ProgressBox(progress: comment.progresso, font: .caption)
 					}
 				}
 			}
