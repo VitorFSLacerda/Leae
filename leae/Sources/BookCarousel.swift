@@ -11,11 +11,11 @@ struct BookCard: View {
 	let book: Livro
 	
 	var body: some View {
-		VStack(alignment: .center, spacing: Spacing.bookcoverSepTitle) {
+		VStack(alignment: .center, spacing: Spacing.small) {
 			Image(book.imagemCapa)
 				.resizable()
 				.scaledToFill()
-				.frame(width: CardSize.smallWidth, height: CardSize.smallHeight, alignment: .center)
+				.frame(width: CardSize.mediumWidth, height: CardSize.mediumHeight, alignment: .center)
 				.cornerRadius(CornerRadius.small)
 				.clipped()
 				
@@ -36,8 +36,7 @@ struct BookCarousel: View {
 	var body: some View {
 		VStack(alignment: .leading, spacing: Spacing.titleSepBody) {
 			Text(header)
-				.frame(width: TitleBoxSize.sectionHeaderWidth, height: TitleBoxSize.sectionHeaderHeight, alignment: .leading)
-				.font(.title2)
+				.font(.title2.weight(.bold))
 				.foregroundColor(.textPrimary)
 				.lineLimit(LineLimit.sectionHeader)
 			

@@ -9,7 +9,7 @@ class UsuarioViewModel: ObservableObject {
     }
 
     var foto: String {
-        usuario.foto
+        usuario.foto ?? "default_photo"
     }
 
     var apelido: String {
@@ -17,15 +17,15 @@ class UsuarioViewModel: ObservableObject {
     }
 
     var nome: String {
-        usuario.nome
+        usuario.nome ?? "Nome não definido"
     }
 
     var email: String {
-        usuario.email
+        usuario.email ?? "E-mail não definido"
     }
 
     var livroAtualTitulo: String {
-        usuario.livroAtual.titulo
+        usuario.livroAtual?.titulo ?? "Nenhum livro atual"
     }
 
     var grupos: [Grupo] {

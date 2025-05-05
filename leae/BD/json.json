@@ -1,0 +1,40 @@
+{
+  "foto": "https://exemplo.com/imagem.jpg",
+  "apelido": "leitor_pro",
+  "nome": "João Silva",
+  "email": "joao@email.com",
+  "senha": "senha123",
+  "livroAtual": {
+    "titulo": "A Revolução dos Bichos",
+    "autor": "George Orwell",
+    "paginasLidas": 57
+  },
+  "gruposUsuario": [
+    {
+      "nome": "Clube de Leitura 1",
+      "descricao": "Grupo de fãs de ficção científica"
+    },
+    {
+      "nome": "Leitores do Bem",
+      "descricao": "Grupo que discute livros motivacionais"
+    }
+  ],
+  "missoes": [
+    {
+      "titulo": "Ler 50 páginas",
+      "concluida": true
+    },
+    {
+      "titulo": "Comentar no grupo",
+      "concluida": false
+    }
+  ],
+  "comentarios": [
+    {
+      "texto": "Esse capítulo foi incrível!",
+    },
+    {
+      "texto": "Gostei muito da mensagem do autor.",
+    }
+  ]
+}
