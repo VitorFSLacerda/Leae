@@ -2,15 +2,18 @@ import SwiftUI
 
 struct CommentCard: View {
 	let comment: Comentario
+	let user = DatabaseManager.shared.getUser()
 
+	var nickname: String = comment.usuario == user ? user?.apelido.append(" (você)") : comment.usuario.apelido
+	
 	var body: some View {
 		VStack {
-			Text(comment.usuario.nome)
+			Text(nickname)
 				.font(.subheadline)
 				.fontWeight(.bold)
 				.foregroundColor(.textPrimary)
 			HStack {
-				Image(comment.livro.imagem)
+				Image(comment.livro.imagemCapa)
 					.resizable()
 					.scaledToFill()
 					.frame(width:CardSize.smallWidth, height: CardSize.smallHeight, alignment: .center)
@@ -25,6 +28,7 @@ struct CommentCard: View {
 					
 					HStack {
 						// retirar 12 hardcoded
+						
 						LikesBox(likes: comment.curtidas, font: .caption)
 						SubCommentBox(subcomments: comment.comentarios.count, font: .caption)
 						ProgressBox(progress: comment.progresso, font: .caption)

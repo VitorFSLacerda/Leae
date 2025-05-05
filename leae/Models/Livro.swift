@@ -1,8 +1,8 @@
 import Foundation
 
-class Livro: Codable, Identifiable, Equatable {
+class Livro: Codable, Identifiable, Hashable {
 	
-	private let _id = UUID()
+	private var _id = UUID()
 	private var _titulo: String
 	private var _autor: String
 	private var _genero: String
@@ -15,6 +15,10 @@ class Livro: Codable, Identifiable, Equatable {
 		self._genero = genero
 		self._sinopse = sinopse
 		self._imagemCapa = imagemCapa ?? "imagempadrao"
+	}
+	
+	func hash(into hasher: inout Hasher) {
+		hasher.combine(id)
 	}
 
 	static func == (lhs: Livro, rhs: Livro) -> Bool {
@@ -46,7 +50,7 @@ class Livro: Codable, Identifiable, Equatable {
 	}
 
 	var imagemCapa: String {
-		get { return _imagemCapa }
+		get { return _imagemCapa ?? "imagempadrao" }
 		set { _imagemCapa = newValue }
 	}
 }

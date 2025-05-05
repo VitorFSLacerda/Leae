@@ -1,7 +1,8 @@
 import Foundation
 
-class Usuario {
-    // Propriedades privadas
+class Usuario: Identifiable, Equatable {
+	
+	private let _id = UUID()
     private var _foto: String?
     private var _apelido: String
     private var _nome: String
@@ -34,8 +35,7 @@ class Usuario {
         case senha = "_senha"
         case comentarios = "_comentarios"
         case livroAtual = "_livroAtual"
-        case gruposUsuario = "_gruposUsuario"
-        case missoes = "_missoes"
+        case grupos = "_grupos"
     }
 
     // Decodificação
@@ -48,8 +48,7 @@ class Usuario {
         _senha = try container.decode(String.self, forKey: .senha)
         _comentarios = try container.decode([Comentario].self, forKey: .comentarios)
         _livroAtual = try container.decode(Livro.self, forKey: .livroAtual)
-        _gruposUsuario = try container.decode([Grupo].self, forKey: .gruposUsuario)
-        _missoes = try container.decode([Missao].self, forKey: .missoes)
+        _grupos = try container.decode([Grupo].self, forKey: .grupos)
     }
 
     // Codificação
@@ -62,9 +61,16 @@ class Usuario {
         try container.encode(_senha, forKey: .senha)
         try container.encode(_comentarios, forKey: .comentarios)
         try container.encode(_livroAtual, forKey: .livroAtual)
-        try container.encode(_gruposUsuario, forKey: .gruposUsuario)
-        try container.encode(_missoes, forKey: .missoes)
+        try container.encode(_grupos, forKey: .grupos)
     }
+	
+	static func == (lhs: Usuario, rhs: Usuario) -> Bool {
+		return lhs.id == rhs.id
+	}
+	
+	var id: UUID {
+		get { return _id }
+	}
 
     // Getter e Setter para `_foto`
     var foto: String? {
@@ -72,14 +78,6 @@ class Usuario {
         set { _foto = newValue }
     }
 	
-	init(apelido: String) {
-		self._apelido = apelido
-	}
-    
-	var foto: String? {
-		get { return _foto }
-		set { _foto = newValue }
-	}
     // Getter e Setter para `_apelido`
     var apelido: String {
         get { return _apelido }
@@ -121,42 +119,6 @@ class Usuario {
         get { return _livroAtual }
         set { _livroAtual = newValue }
     }
-
-	var nome: String? {
-		get { return _nome }
-		set { _nome = newValue }
-	}
-
-	var email: String? {
-		get { return _email }
-		set { _email = newValue }
-	}
-
-	var senha: String? {
-		get { return _senha }
-		set { _senha = newValue }
-	}
-
-	var comentarios: [Comentario] {
-		get { return _comentarios }
-		set { _comentarios = newValue }
-	}
-
-
-	var livroAtual: Livro? {
-		get { return _livroAtual }
-		set { _livroAtual = newValue }
-	}
-
-	var gruposUsuario: [Grupo] {
-		get { return _gruposUsuario }
-		set { _gruposUsuario = newValue }
-	}
-
-	var missoes: [Missao] {
-		get { return _missoes }
-		set { _missoes = newValue }
-	}
 
     // Método para definir o progresso de leitura de um livro
     func atualizarProgresso(livro: Livro, porcentagemLida: Int) {
