@@ -8,6 +8,7 @@ struct Padding {
 
 // MARK: - Spacing Values
 struct Spacing {
+	static let big: CGFloat = 20
 	static let betweenSections: CGFloat = 16
 	static let betweenItems: CGFloat = 15
 	static let titleSepBody: CGFloat = 12
@@ -50,6 +51,7 @@ struct CardSize {
 	static let smallWidth: CGFloat = 78
 	static let smallHeight: CGFloat = 122
 	static let smallSquare: CGFloat = 88
+	static let bigSquare: CGFloat = 120
 }
 
 // MARK: Title Box Size Values

@@ -8,13 +8,36 @@
 import SwiftUI
 
 struct ViewGrupo: View {
+	let group: Grupo
+	@Environment(\.presentationMode) private var presentationMode
+	
     var body: some View {
-		// topo da tela
-		//card principal
-		// lider
-		// secao Discussao
-		// lista de comentarios
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+		NavigationView {
+			ScrollView {
+				VStack(alignment: .leading, spacing: Spacing.betweenSections) {
+					HeaderOnGroup(group: group)
+					LeaderCardOnGroup(group: group)
+					DiscussionSectionOnGroup(group: group)
+				}
+			}
+			.background(Color.backgroundBase)
+		}
+		.background(Color.primaryMuted)
+		.navigationTitle(group.nome)
+		.navigationBarTitleDisplayMode(.inline)
+		.toolbar {
+			ToolbarItem(placement: .navigationBarLeading) {
+				Button(action: {
+					presentationMode.wrappedValue.dismiss()
+				}) {
+					HStack {
+						Image(systemName: "chevron.left")
+						Text("Voltar")
+					}
+					.foregroundColor(.primaryHover)
+				}
+			}
+		}
     }
 }
 

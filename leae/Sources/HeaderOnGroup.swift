@@ -1,42 +1,39 @@
+//
+//  HeaderOnGroup.swift
+//  leae
+//
+//  Created by Aluno 12 on 05/05/25.
+//
+
 import SwiftUI
 
-struct GroupCard: View {
+struct HeaderOnGroup: View {
 	let group: Grupo
-
-	var body: some View {
-		HStack {
+    var body: some View {
+		HStack(alignment: .center, spacing: Spacing.big) {
 			Image(group.imagem)
 				.resizable()
 				.scaledToFill()
-				.frame(width: CardSize.smallSquare, height: CardSize.smallSquare, alignment: .center)
+				.frame(width: CardSize.bigSquare, height: CardSize.bigSquare, alignment: .center)
 				.cornerRadius(CornerRadius.medium)
 				.clipped()
-
-			VStack() {
-				Text(group.nome)
-					.font(.callout.fontWeight(.bold))
-					.foregroundColor(.textPrimary)
+			VStack(alignment: .leading, spacing: Spacing.big) {
 				Text(group.livro.titulo)
+					.font(.body)
+					.foregroundColor(.textPrimary)
+					.lineLimit(1)
+				Text(group.descricao)
 					.font(.subheadline)
 					.foregroundColor(.textSecundary)
-					.lineLimit(1)
-				HStack {
-					Image(systemName: "medal")
-					Text(group.mensagemLider)
-						.font(.footnote)
-						.lineLimit(1)
-				}
-				.foregroundColor(.textSecundary)
+					.lineLimit(3)
 			}
-			
-			Image(systemName: "chevron.right")
-				.foregroundColor(.primaryHover)
 		}
-	}
+		.background(Color.primaryMuted)
+    }
 }
 
-struct GroupCard_Previews: PreviewProvider {
-	static var previews: some View {
+struct HeaderOnGroup_Previews: PreviewProvider {
+    static var previews: some View {
 		// Criando livros mock
 		let livro1 = Livro(
 			titulo: "SwiftUI Essentials",
@@ -73,10 +70,7 @@ struct GroupCard_Previews: PreviewProvider {
 			usuarios: [usuario1, usuario2],
 			imagem: "grupo_swiftui"
 		)
-
-		// Definindo o líder do grupo
-		grupoMock.definirLider()
-
-		GroupCard()
-	}
+		
+        HeaderOnGroup(group: grupoMock)
+    }
 }
