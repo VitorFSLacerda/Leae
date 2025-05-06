@@ -17,17 +17,17 @@ struct GadgetCard: View {
             HStack {
                 Image(systemName: gadget.icon)
                     .font(.title)
-                    .foregroundColor(Color(hex: "6F230F"))
+                    .foregroundColor(Color("Highlight"))
                 Spacer()
             }
             
             Text(gadget.title)
                 .font(.headline)
-                .foregroundColor(Color(hex: "6F230F"))
+                .foregroundColor(Color("Highlight"))
             
             Text(gadget.description)
                 .font(.subheadline)
-                .foregroundColor(Color(hex: "FF642F").opacity(0.8))
+                .foregroundColor(Color("Hover").opacity(0.8))
                 .lineLimit(2)
         }
         .padding()
@@ -59,7 +59,6 @@ struct GadgetCarousel: View {
 // estrutura para tabbar
 
 struct TabBar: View {
-    @State var selectedTab = 0
     var body: some View{
         
         TabView{
@@ -69,23 +68,20 @@ struct TabBar: View {
                         .font(.system(size:25))
                     Text("Home")
                 }
-                .tag(0)
             
-            Color.red
+            NavigationView{ LivroView() }
                 .tabItem{
                     Image(systemName: "globe")
                         .font(.system(size:25))
                     Text("Explorar")
                 }
-                .tag(1)
             
-            Color.clear
+            NavigationView{ MeuLivroView() }
                 .tabItem{
                     Image(systemName: "book")
                         .font(.system(size:25))
                     Text("Bilioteca")
                 }
-                .tag(2)
             
             Color.clear
                 .tabItem{
@@ -93,8 +89,9 @@ struct TabBar: View {
                         .font(.system(size:25))
                     Text("Perfil")
                 }
-                .tag(3)
+
         }
+        .accentColor(Color("Highlight"))
         .foregroundColor(.black)
     }
 }

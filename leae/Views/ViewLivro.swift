@@ -111,18 +111,18 @@ struct LivroView: View {
                     Spacer(minLength: 20)
                     Button(action: { meu.toggle() } ) {
                         if meu {
-                            Text("Adicionar")
-                                .font(Font.custom("SF Pro Text", size: 18))
-                                .foregroundColor(Color("Highlight"))
-                                .frame(width: 344, height:50)
-                                .background(Color(hex: "#FFAF9A"))
-                                .cornerRadius(100)
-                        } else {
                             Text("Remover")
                                 .font(Font.custom("SF Pro Text", size: 18))
                                 .foregroundColor(Color("Highlight"))
                                 .frame(width: 344, height:50)
                                 .background(Color(hex: "#F48B8B"))
+                                .cornerRadius(100)
+                        } else {
+                            Text("Adicionar")
+                                .font(Font.custom("SF Pro Text", size: 18))
+                                .foregroundColor(Color("Highlight"))
+                                .frame(width: 344, height:50)
+                                .background(Color(hex: "#FFAF9A"))
                                 .cornerRadius(100)
                         }
                     }
@@ -136,9 +136,7 @@ struct LivroView: View {
 
 struct LivroPreviews: PreviewProvider {
     static var previews: some View {
-        NavigationView{
-            LivroView()
-        }
+        TabBar()
     }
 }
 
