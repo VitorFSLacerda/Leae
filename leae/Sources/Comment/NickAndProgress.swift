@@ -10,8 +10,13 @@ import SwiftUI
 struct NickAndProgress: View {
 	let comment: Comentario
 	let userViewer = DatabaseManager.shared.getUser()
-	var nickname: String = comment.usuario == userViewer ? userViewer?.apelido.append(" (você)") : comment.usuario.apelido
-	
+	var nickname: String {
+		if let userViewer = userViewer, comment.usuario == userViewer {
+			return "\(userViewer.apelido) (você)"
+		} else {
+			return comment.usuario.apelido
+		}
+	}
     var body: some View {
 		HStack {
 			Text(nickname)
