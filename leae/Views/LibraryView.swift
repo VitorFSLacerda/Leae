@@ -62,7 +62,7 @@ struct LibraryView: View {
                         }) {
                             Text(status.rawValue.capitalized)
                                 .padding(7)
-                                .background(selectedFilter == status ? Color.pink : Color.clear)
+                                .background(selectedFilter == status ? Color("Highlight") : Color.clear)
                                 .foregroundColor(selectedFilter == status ? .white : .black)
                                 .cornerRadius(8)
                         }
@@ -72,6 +72,7 @@ struct LibraryView: View {
                 
                 // Grid de livros com ScrollView
                 ScrollView {
+                    Spacer(minLength: 5)
                     LazyVGrid(columns: Array(repeating: GridItem(.flexible(minimum: 100)), count: 3), spacing: 16) {
                         ForEach(filteredBooks) { book in
                             BookCard(book: book)
@@ -81,6 +82,7 @@ struct LibraryView: View {
                 }
             }
             .padding(.top, 8)
+            .background(Color("Base"))
             .navigationTitle("Minha Biblioteca")
         }
     }
@@ -106,17 +108,22 @@ struct BookCard: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            book.coverImage
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 100, height: 150)
-                .cornerRadius(8)
+            NavigationLink(destination: MeuLivroView()){
+                book.coverImage
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 80, height: 130)
+                    .cornerRadius(8)
+            }
             
-            Text(book.title)
-                .font(.headline)
-                .lineLimit(2)
-                .minimumScaleFactor(0.7)
-            
+            NavigationLink(destination: MeuLivroView()){
+                Text(book.title)
+                    .font(.headline)
+                    .lineLimit(2)
+                    .minimumScaleFactor(0.7)
+                    .multilineTextAlignment(.leading)
+            }
+                
             Text(book.author)
                 .font(.subheadline)
                 .foregroundColor(.gray)
@@ -155,5 +162,11 @@ enum BookStatus: CaseIterable {
         case .have:
             return "Tenho"
         }
+    }
+}
+
+struct ViewLibraryPreviews: PreviewProvider {
+    static var previews: some View {
+        TabBar()
     }
 }

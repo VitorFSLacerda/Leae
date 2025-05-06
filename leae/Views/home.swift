@@ -69,14 +69,15 @@ struct TabBar: View {
                     Text("Home")
                 }
             
-            NavigationView{ LivroView() }
+//            NavigationView{ LivroView() }
+            Color.purple
                 .tabItem{
                     Image(systemName: "globe")
                         .font(.system(size:25))
                     Text("Explorar")
                 }
             
-            NavigationView{ MeuLivroView() }
+            LibraryView()
                 .tabItem{
                     Image(systemName: "book")
                         .font(.system(size:25))

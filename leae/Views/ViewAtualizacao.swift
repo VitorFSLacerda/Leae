@@ -59,16 +59,6 @@ struct CustomAtualizacaoView: View {
     var body: some View {
         VStack{
             HStack(alignment: .center, spacing: 0) {
-                Image(systemName: "chevron.backward")
-                    .foregroundColor(Color("Hover"))
-                Text(" Cancelar")
-                    .font(
-                        Font.custom("SF Pro Text", size: 15)
-                            .weight(.semibold)
-                    )
-                    .multilineTextAlignment(.leading)
-                    .foregroundColor(Color("Hover"))
-                    .frame(maxWidth: .infinity, alignment: .leading)
                 Text("Atualização")
                     .font(
                         Font.custom("SF Pro Text", size: 20)
@@ -77,6 +67,7 @@ struct CustomAtualizacaoView: View {
                     .multilineTextAlignment(.leading)
                     .foregroundColor(Color("Highlight"))
                     .frame(maxWidth: .infinity, alignment: .center)
+                    .frame(width: 150, alignment: .center)
                 Text("Salvar")
                     .font(
                         Font.custom("SF Pro Text", size: 15)
@@ -84,9 +75,10 @@ struct CustomAtualizacaoView: View {
                     )
                     .multilineTextAlignment(.leading)
                     .foregroundColor(Color("Hover"))
-                    .frame(maxWidth: .infinity, alignment: .trailing)
+                    .frame(maxWidth: 90, alignment: .trailing)
             }
             .frame(width: .infinity, height: 30, alignment: .center)
+            .offset(x: 45)
             .padding(5)
             ZStack {
                 Rectangle()
