@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E40C240C2DBFB3AC005CFC02 /* ViewAtualizacao.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C240B2DBFB3AC005CFC02 /* ViewAtualizacao.swift */; };
+		E468898B2DC9325000D44F7C /* ViewMeuLivro.swift in Sources */ = {isa = PBXBuildFile; fileRef = E468898A2DC9325000D44F7C /* ViewMeuLivro.swift */; };
 		E547B59A2DAD298100B04FC0 /* LeaeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E547B5992DAD298100B04FC0 /* LeaeApp.swift */; };
 		E547B59C2DAD298100B04FC0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E547B59B2DAD298100B04FC0 /* ContentView.swift */; };
 		E547B5D52DAD541000B04FC0 /* ViewConstancia.swift in Sources */ = {isa = PBXBuildFile; fileRef = E547B5D42DAD541000B04FC0 /* ViewConstancia.swift */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		E40C240B2DBFB3AC005CFC02 /* ViewAtualizacao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAtualizacao.swift; sourceTree = "<group>"; };
+		E468898A2DC9325000D44F7C /* ViewMeuLivro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMeuLivro.swift; sourceTree = "<group>"; };
 		E547B5962DAD298100B04FC0 /* leae.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = leae.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E547B5992DAD298100B04FC0 /* LeaeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaeApp.swift; sourceTree = "<group>"; };
 		E547B59B2DAD298100B04FC0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				E547B5D42DAD541000B04FC0 /* ViewConstancia.swift */,
 				E548B4E72DB7BE8700C566AC /* ViewLivro.swift */,
 				E40C240B2DBFB3AC005CFC02 /* ViewAtualizacao.swift */,
+				E468898A2DC9325000D44F7C /* ViewMeuLivro.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 				E58D34E02DBA5FAE003CB7B0 /* ViewModelUsuario.swift in Sources */,
 				E547B5D52DAD541000B04FC0 /* ViewConstancia.swift in Sources */,
 				E587D8EC2DAE884200E00062 /* ViewPerfilProprio.swift in Sources */,
+				E468898B2DC9325000D44F7C /* ViewMeuLivro.swift in Sources */,
 				E5FF8A1F2DB9034D00B8F051 /* Missao.swift in Sources */,
 				E548B4E82DB7BE8700C566AC /* ViewLivro.swift in Sources */,
 				E58D34E22DBA5FCE003CB7B0 /* home.swift in Sources */,
