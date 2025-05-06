@@ -23,6 +23,7 @@ struct LeaderCardOnGroup: View {
 
 struct LeaderCardOnGroup_Previews: PreviewProvider {
     static var previews: some View {
-        LeaderCardOnGroup()
+		let group = MockGroupGenerator.mockGroup()
+        LeaderCardOnGroup(group: group)
     }
 }

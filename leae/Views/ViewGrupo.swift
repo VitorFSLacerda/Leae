@@ -43,6 +43,7 @@ struct ViewGrupo: View {
 
 struct ViewGrupo_Previews: PreviewProvider {
     static var previews: some View {
-        ViewGrupo()
+		let group = MockGroupGenerator.mockGroup()
+        ViewGrupo(group: group)
     }
 }

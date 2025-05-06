@@ -26,7 +26,7 @@ struct CommentOnFeed: View {
 
 struct CommentOnFeed_Previews: PreviewProvider {
 	static var previews: some View {
-		let commment = MockCommentGenerator.mockComment()
+		let comment = MockCommentGenerator.mockComment()
 		CommentOnFeed(comment: comment)
 	}
 }

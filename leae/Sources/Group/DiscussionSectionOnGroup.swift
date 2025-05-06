@@ -27,6 +27,7 @@ struct DiscussionSectionOnGroup: View {
 
 struct DiscussionSectionOnGroup_Previews: PreviewProvider {
     static var previews: some View {
-        DiscussionSectionOnGroup()
+		let group = MockGroupGenerator.mockGroup()
+        DiscussionSectionOnGroup(group: group)
     }
 }

@@ -9,7 +9,7 @@ import Foundation
 
 struct MockCommentGenerator {
 	static func mockComment() -> Comentario {
-		let livro = MockBookGenerator.MockBook()
+		let livro = MockBookGenerator.MockBook(seed: Int.random(in: 0...10))
 		let seed = Int.random(in: 0...10)
 		let usuario = MockUserGenerator.mockUserOnBook(seed: seed, book: livro)
 		switch seed {
