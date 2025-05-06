@@ -110,10 +110,10 @@ struct MeuLivroView: View {
             }
         }
     }
+}
     
-    struct ViewMeuLivroPreviews: PreviewProvider {
-        static var previews: some View {
-            TabBar()
-        }
+struct ViewMeuLivroPreviews: PreviewProvider {
+    static var previews: some View {
+        TabBar()
     }
 }

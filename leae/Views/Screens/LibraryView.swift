@@ -157,3 +157,9 @@ enum BookStatus: CaseIterable {
         }
     }
 }
+
+struct LivroPreviews: PreviewProvider {
+    static var previews: some View {
+        LibraryView()
+    }
+}
