@@ -44,6 +44,7 @@ extension Color {
 	static let textSecundary = Color("Secundary")
 }
 
+
 // MARK: Card Size Values
 struct CardSize {
 	static let mediumWidth: CGFloat = 85
@@ -53,6 +54,8 @@ struct CardSize {
 	static let smallSquare: CGFloat = 88
 	static let bigSquare: CGFloat = 120
 }
+
+
 
 // MARK: Title Box Size Values
 struct TitleBoxSize {

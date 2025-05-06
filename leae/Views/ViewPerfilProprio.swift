@@ -1,55 +1,70 @@
 import SwiftUI
 
 struct ViewPerfilProprio: View {
-
     
-    //  @EnvironmentObject var viewModelUsuario: ViewModelUsuario
-    //  @StateObject private var comentarioViewModel = ViewModelComentario()
-    //
-    //
-    let progresso: CGFloat = 0.61 // 61%
-    
-    var icons = ["book", "square.grid.2x2", "star", "flame"]
-    var titulos = ["Biblioteca", "Grupos"]
+    let progresso: CGFloat = 0.61 // 61% de exemplo
+    let icons = ["book", "square.grid.2x2", "star", "flame"]
+    let titulos = ["Biblioteca", "Grupos"]
     let colunas = [GridItem(.flexible()), GridItem(.flexible())]
-    //  var qtdComentarios: Int {
-    //    comentarioViewModel.quantidadeDeComentarios()
-    //  }
-    
-    // Substituindo os ViewModels por dados simulados
+
     @State private var diasConstancia: Int = 10
     @State private var foto = "perfilImagem"
     @State private var nome = "Joana Silva"
     @State private var apelido = "@joanasilva"
     @State private var fala = "Sou muito maneiro!"
-    
-    
-    @State private var comentarios = [
-        // Passando o livro obrigatório
-        Comentario(livro: Livro(titulo: "O Pequeno Príncipe", autor: "Antoine de Saint-Exupéry", genero: "Fábula", sinopse: "Um jovem príncipe que viaja por planetas.", imagemCapa: "pequeno_principe.jpg"), usuario: Usuario(foto: "", apelido: "@VitorLacerda", nome: "Vitor Lacerda", email: "", senha: "", livroAtual: Livro(titulo: "O Pequeno Príncipe", autor: "Antoine de Saint-Exupéry", genero: "Fábula", sinopse: "Um jovem príncipe que viaja por planetas.", imagemCapa: "pequeno_principe.jpg"), gruposUsuario: [], missoes: [], comentarios: []), texto: "Ótima interface!", curtidas: 10, comentarios: []),
-        Comentario(livro: Livro(titulo: "O Pequeno Príncipe", autor: "Antoine de Saint-Exupéry", genero: "Fábula", sinopse: "Um jovem príncipe que viaja por planetas.", imagemCapa: "pequeno_principe.jpg"), usuario: Usuario(foto: "", apelido: "", nome: "", email: "", senha: "", livroAtual: Livro(titulo: "O Pequeno Príncipe", autor: "Antoine de Saint-Exupéry", genero: "Fábula", sinopse: "Um jovem príncipe que viaja por planetas.", imagemCapa: "pequeno_principe.jpg"), gruposUsuario: [], missoes: [], comentarios: []), texto: "O layout poderia ser mais clean", curtidas: 3, comentarios: [])
-    ]
-    
+    @State private var comentarios: [Comentario] = []
+
+    init() {
+        // Inicialização do livro (exemplo fixo)
+        let livro = Livro(
+            titulo: "O Pequeno Príncipe",
+            autor: "Antoine de Saint-Exupéry",
+            genero: "Fábula",
+            sinopse: "Um jovem príncipe que viaja por planetas.",
+            imagemCapa: "pequeno_principe.jpg"
+        )
+
+        // Inicialização do usuário
+        let usuario = Usuario(
+            foto: "",
+            apelido: "@VitorLacerda",
+            nome: "Vitor Lacerda",
+            email: "",
+            senha: "",
+            livroAtual: livro,
+            gruposUsuario: [],
+            missoes: [],
+            comentarios: []
+        )
+
+        // Inicialização dos comentários
+        _comentarios = State(initialValue: [
+            Comentario(livro: livro, usuario: usuario, texto: "Ótima interface!", curtidas: 10, comentarios: []),
+            Comentario(livro: livro, usuario: usuario, texto: "O layout poderia ser mais clean", curtidas: 3, comentarios: [])
+        ])
+    }
+
     var body: some View {
         ZStack {
             Color.backgroundBase
                 .ignoresSafeArea()
-            ScrollView{
-                
-                
-                VStack(spacing: 20){
+            
+            ScrollView {
+                VStack(spacing: 20) {
                     Spacer()
+                    
                     Image(foto)
                         .resizable()
                         .scaledToFill()
                         .frame(width: 230, height: 230)
                         .clipShape(Circle())
-                    HStack(alignment: .top){
-                        
-                        VStack(alignment: .leading){
+                    
+                    HStack(alignment: .top) {
+                        VStack(alignment: .leading) {
                             Text("Aline Almeida")
                                 .foregroundColor(Color.textPrimary)
-                                .font(.system(size:25))
+                                .font(.system(size: 25))
+                            
                             Text(apelido)
                                 .foregroundColor(Color.primaryHover)
                             
@@ -59,35 +74,34 @@ struct ViewPerfilProprio: View {
                         }
                         
                         Spacer()
-                        ZStack{
+                        
+                        ZStack {
                             Rectangle()
                                 .fill(Color.secundaryDefault)
                                 .frame(width: 70, height: 40)
                                 .cornerRadius(20)
-                            HStack{
+                            
+                            HStack {
                                 Image(systemName: "flame")
                                     .foregroundColor(Color.accentHighlight)
                                     .font(.system(size: 20))
+                                
                                 Text(String(diasConstancia))
                                     .foregroundColor(Color.textPrimary)
                             }
                         }
-                        
                     }
                     .padding(.horizontal)
                     
-                    
-                    
                     LazyVGrid(columns: colunas, spacing: 10) {
                         ForEach(0..<2) { i in
-                            ZStack{
-                                
+                            ZStack {
                                 RoundedRectangle(cornerRadius: 20)
                                     .fill(Color.secundaryBackground)
                                     .frame(height: 110)
+                                
                                 Rectangle()
                                     .fill(Color.secundaryDefault)
-                                //.opacity(0.5)
                                     .frame(width: 30, height: 30)
                                     .cornerRadius(10)
                                     .padding(.top, 60)
@@ -102,26 +116,21 @@ struct ViewPerfilProprio: View {
                                     .foregroundColor(Color.accentHighlight)
                                     .padding(.leading, 20)
                                     .padding(.top, 60)
-                                
                             }
-                            
                         }
                     }
                     .padding(.horizontal)
                     
-                    
-                    VStack{
+                    VStack {
                         Text("Meus comentários")
                             .font(.system(size: 25))
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.horizontal)
                         
-                        
                         ForEach(0..<2, id: \.self) { index in
                             let comentario = comentarios[index]
                             
                             ZStack {
-                                
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(Color.primaryHover, lineWidth: 4)
                                     .background(Color.backgroundBase.opacity(0.1))
@@ -167,40 +176,35 @@ struct ViewPerfilProprio: View {
                                     ZStack(alignment: .leading) {
                                         Capsule()
                                             .frame(width: 100, height: 10)
-                                            .foregroundColor(Color.borderDefault) // cor de fundo da barra
+                                            .foregroundColor(Color.borderDefault)
                                         
                                         Capsule()
                                             .frame(width: 100 * progresso, height: 10)
-                                            .foregroundColor(Color.accentHighlight) // marrom escuro
+                                            .foregroundColor(Color.accentHighlight)
                                     }
+                                    
                                     Text("\(Int(progresso * 100))%")
                                         .font(.subheadline)
                                         .foregroundColor(Color.accentHighlight)
-                                    
                                 }
                                 .padding(.top, 150)
                                 .padding(.leading, 110)
                             }
                         }
-                        
                     }
                 }
-                
             }
             .navigationTitle("Meu Perfil")
-            
-            
-
         }
-        
     }
 }
 
+// MARK: - Preview
+
 struct PerfilProprio_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView{
+        NavigationView {
             ViewPerfilProprio()
-            
         }
     }
 }

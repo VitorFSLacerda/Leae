@@ -7,6 +7,8 @@ struct RegisterView: View {
     @State private var confirmPassword: String = ""
     @State private var saveLoginDetails: Bool = true
     
+    @State private var usuario: Usuario?
+    
     // Estado para controlar o alerta de erro
     @State private var showAlert = false
     @State private var errorMessage = ""
@@ -133,13 +135,30 @@ struct RegisterView: View {
             return
         }
         
+        let usuario = Usuario(
+            foto: nil,
+            apelido: username,
+            nome: username,
+            email: email,
+            senha: password,
+            livroAtual: nil,
+            gruposUsuario: [],
+            missoes: [],
+            comentarios: []
+        )
+        
         // Salvar no Keychain usando o EMAIL como chave
             let userData: [String: String] = ["username": username, "password": password]
             if let userDataEncoded = try? JSONEncoder().encode(userData) {
                 let success = KeychainHelper.save(key: email, data: userDataEncoded) // Usar o email como chave
                 if success {
                     print("Usuário registrado com sucesso!")
-                                        
+                    
+                    // Salvar no DatabaseManager (UserDefaults)
+                    self.usuario = usuario
+                    DatabaseManager.shared.saveUser(self.usuario!)
+                    
+                    
                     // Salvar os dados de entrada se a checkbox estiver marcada
                     if saveLoginDetails {
                         savedEmail = email

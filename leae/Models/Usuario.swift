@@ -2,7 +2,7 @@ import Foundation
 
 class Usuario: Identifiable, Equatable {
 	
-	private let _id = UUID()
+	private var _id = UUID()
     private var _foto: String?
     private var _apelido: String
     private var _nome: String
@@ -20,20 +20,23 @@ class Usuario: Identifiable, Equatable {
         self._nome = nome
         self._email = email
         self._senha = senha
-        self._comentarios = []
-        self._leituras = [:]
-        self._livroAtual = nil
-        self._grupos = []
+        self._comentarios = comentarios
+		self._leituras = [:]
+        self._livroAtual = livroAtual
+        self._gruposUsuario = gruposUsuario
+        self._missoes = missoes
     }
-
+	
     // Enum para definir as chaves de codificação/decodificação
     private enum CodingKeys: String, CodingKey {
+		case id = "_id"
         case foto = "_foto"
         case apelido = "_apelido"
         case nome = "_nome"
         case email = "_email"
         case senha = "_senha"
         case comentarios = "_comentarios"
+		case leituras = "_leituras"
         case livroAtual = "_livroAtual"
         case grupos = "_grupos"
     }
@@ -41,25 +44,30 @@ class Usuario: Identifiable, Equatable {
     // Decodificação
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        _foto = try container.decode(String.self, forKey: .foto)
+		_id = try container.decodeIfPresent(UUID.self, forKey: .id)
+        _foto = try container.decodeIfPresent(String.self, forKey: .foto)
         _apelido = try container.decode(String.self, forKey: .apelido)
-        _nome = try container.decode(String.self, forKey: .nome)
-        _email = try container.decode(String.self, forKey: .email)
-        _senha = try container.decode(String.self, forKey: .senha)
-        _comentarios = try container.decode([Comentario].self, forKey: .comentarios)
-        _livroAtual = try container.decode(Livro.self, forKey: .livroAtual)
-        _grupos = try container.decode([Grupo].self, forKey: .grupos)
+        _nome = try container.decodeIfPresent(String.self, forKey: .nome)
+        _email = try container.decodeIfPresent(String.self, forKey: .email)
+        _senha = try container.decodeIfPresent(String.self, forKey: .senha)
+        _comentarios = try container.decodeIfPresent([Comentario].self, forKey: .comentarios) ?? []
+		_leituras = try container.decodeIfPresent([Livro:Int].self, forKey: .leituras)
+        _livroAtual = try container.decodeIfPresent(Livro.self, forKey: .livroAtual)
+        _gruposUsuario = try container.decodeIfPresent([Grupo].self, forKey: .gruposUsuario) ?? []
+        _missoes = try container.decodeIfPresent([Missao].self, forKey: .missoes) ?? []
     }
 
     // Codificação
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
+		try container.encode(_id, forKey: .id)
         try container.encode(_foto, forKey: .foto)
         try container.encode(_apelido, forKey: .apelido)
         try container.encode(_nome, forKey: .nome)
         try container.encode(_email, forKey: .email)
         try container.encode(_senha, forKey: .senha)
         try container.encode(_comentarios, forKey: .comentarios)
+		try container.encode(_leituras, forKey: .leituras)
         try container.encode(_livroAtual, forKey: .livroAtual)
         try container.encode(_grupos, forKey: .grupos)
     }
@@ -107,17 +115,22 @@ class Usuario: Identifiable, Equatable {
         get { return _comentarios }
         set { _comentarios = newValue }
     }
-
-    // Getter para `_grupos`
-    var grupos: [Grupo] {
-        get { return _grupos }
-        set { _grupos = newValue }
+	
+	// Getter para `_leituras`
+    var leituras: [Livro:Int] {
+        get { return _leituras }
+        set { _leituras = newValue }
     }
 
     // Getter para `_livroAtual`
     var livroAtual: Livro? {
         get { return _livroAtual }
         set { _livroAtual = newValue }
+    }
+	
+	var gruposUsuario: [Grupo] {
+        get { return _gruposUsuario }
+        set { _gruposUsuario = newValue }
     }
 
     // Método para definir o progresso de leitura de um livro
@@ -162,5 +175,7 @@ class Usuario: Identifiable, Equatable {
     // Método para adicionar um grupo
     func adicionarGrupo(_ grupo: Grupo) {
         _grupos.append(grupo)
-    }
+		}
+	
+
 }
