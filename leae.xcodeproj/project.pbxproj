@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E40C240C2DBFB3AC005CFC02 /* ViewAtualizacao.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C240B2DBFB3AC005CFC02 /* ViewAtualizacao.swift */; };
 		E42821E62DCB9CEF00DC1D96 /* GroupModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42821E52DCB9CEF00DC1D96 /* GroupModal.swift */; };
+		E445730A2DCBF7CB006A3E3B /* ViewPerfil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44573092DCBF7CB006A3E3B /* ViewPerfil.swift */; };
 		E468898B2DC9325000D44F7C /* ViewMeuLivro.swift in Sources */ = {isa = PBXBuildFile; fileRef = E468898A2DC9325000D44F7C /* ViewMeuLivro.swift */; };
 		E489954E2DCA46DE004DBE40 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E489954D2DCA46DE004DBE40 /* LibraryView.swift */; };
 		E547B59A2DAD298100B04FC0 /* LeaeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E547B5992DAD298100B04FC0 /* LeaeApp.swift */; };
@@ -48,6 +49,7 @@
 /* Begin PBXFileReference section */
 		E40C240B2DBFB3AC005CFC02 /* ViewAtualizacao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAtualizacao.swift; sourceTree = "<group>"; };
 		E42821E52DCB9CEF00DC1D96 /* GroupModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupModal.swift; sourceTree = "<group>"; };
+		E44573092DCBF7CB006A3E3B /* ViewPerfil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPerfil.swift; sourceTree = "<group>"; };
 		E468898A2DC9325000D44F7C /* ViewMeuLivro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMeuLivro.swift; sourceTree = "<group>"; };
 		E489954D2DCA46DE004DBE40 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		E547B5962DAD298100B04FC0 /* leae.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = leae.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,6 +143,7 @@
 				E42821E52DCB9CEF00DC1D96 /* GroupModal.swift */,
 				E58D34E12DBA5FCE003CB7B0 /* home.swift */,
 				E40C240B2DBFB3AC005CFC02 /* ViewAtualizacao.swift */,
+				E44573092DCBF7CB006A3E3B /* ViewPerfil.swift */,
 				E547B5D42DAD541000B04FC0 /* ViewConstancia.swift */,
 				E489954D2DCA46DE004DBE40 /* LibraryView.swift */,
 				E548B4E72DB7BE8700C566AC /* ViewLivro.swift */,
@@ -317,6 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E58D34DB2DBA5F90003CB7B0 /* ComponentsStruct.swift in Sources */,
+				E445730A2DCBF7CB006A3E3B /* ViewPerfil.swift in Sources */,
 				E547B59C2DAD298100B04FC0 /* ContentView.swift in Sources */,
 				E5FF8A242DB92D0000B8F051 /* Comentario.swift in Sources */,
 				E547B59A2DAD298100B04FC0 /* LeaeApp.swift in Sources */,

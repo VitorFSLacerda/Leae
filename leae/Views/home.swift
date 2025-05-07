@@ -19,12 +19,12 @@ struct GadgetCard: View {
             HStack {
                 Image(systemName: gadget.icon)
                     .font(.title)
-                    .foregroundColor(Color(hex: "6F230F"))
+                    .foregroundColor(Color("Highlight"))
                 Spacer()
             }
             Text(gadget.title)
                 .font(.headline)
-                .foregroundColor(Color(hex: "6F230F"))
+                .foregroundColor(Color("Highlight"))
             Text(gadget.description)
                 .font(.subheadline)
                 .foregroundColor(Color(hex: "FF642F").opacity(0.8))

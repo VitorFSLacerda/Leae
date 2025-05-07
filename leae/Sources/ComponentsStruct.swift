@@ -135,6 +135,7 @@ struct Comments: View {
     }
   }
 }
+
 // chamada: Comments(UserandComment: ["User":"Comment", "U2":"C2", "U3":"C3", ...])
 struct ListCard: View {
   let title: String
@@ -144,8 +145,8 @@ struct ListCard: View {
     ZStack(alignment: .topLeading) {
       // Background card (only one cornerRadius modifier needed)
       RoundedRectangle(cornerRadius: 20)
-        .foregroundColor(Color(hex: "FFD9CF"))
-        .frame(width: 365, height: 285)
+        .foregroundColor(Color("Background"))
+        .frame(width: 344, height: 285)
         .shadow(color: .black.opacity(0.2), radius: 5, x: 3, y: 0)
       // Content
       VStack(alignment: .leading, spacing: 10) {
@@ -153,6 +154,7 @@ struct ListCard: View {
         Text(title)
           .font(.title)
           .fontWeight(.medium)
+          .foregroundColor(Color("Highlight"))
           .padding(.top, 16)
           .padding(.horizontal, 20)
         Text(sub)
@@ -169,6 +171,7 @@ struct ListCard: View {
               VStack(alignment: .leading, spacing: 4) {
                 Text(group)
                   .font(.system(size: 16, weight: .light))
+                  .foregroundColor(Color("Highlight"))
                 HStack{
                   Text(book)
                     .font(.caption)
@@ -176,7 +179,7 @@ struct ListCard: View {
                   //                HStack{
                   Spacer()
                   Image(systemName:"chevron.right")
-                    .foregroundColor(Color(hex: "6F230F"))
+                    .foregroundColor(Color("Highlight"))
                 }
               }
               Divider()
@@ -186,7 +189,7 @@ struct ListCard: View {
         .padding(.horizontal, 20)
         .padding(.bottom, 16)
       }
-      .frame(width: 343, height: 140, alignment: .topLeading)
+      .frame(width: 344, height: 140, alignment: .topLeading)
     }
   }
 }
