@@ -10,6 +10,7 @@
 		E40C240C2DBFB3AC005CFC02 /* ViewAtualizacao.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C240B2DBFB3AC005CFC02 /* ViewAtualizacao.swift */; };
 		E42821E62DCB9CEF00DC1D96 /* GroupModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42821E52DCB9CEF00DC1D96 /* GroupModal.swift */; };
 		E445730C2DCBF8A0006A3E3B /* ViewExplore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E445730B2DCBF8A0006A3E3B /* ViewExplore.swift */; };
+		E445730E2DCC0601006A3E3B /* ViewPerfil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E445730D2DCC0601006A3E3B /* ViewPerfil.swift */; };
 		E468898B2DC9325000D44F7C /* ViewMeuLivro.swift in Sources */ = {isa = PBXBuildFile; fileRef = E468898A2DC9325000D44F7C /* ViewMeuLivro.swift */; };
 		E489954E2DCA46DE004DBE40 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E489954D2DCA46DE004DBE40 /* LibraryView.swift */; };
 		E547B59A2DAD298100B04FC0 /* LeaeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E547B5992DAD298100B04FC0 /* LeaeApp.swift */; };
@@ -50,6 +51,7 @@
 		E40C240B2DBFB3AC005CFC02 /* ViewAtualizacao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAtualizacao.swift; sourceTree = "<group>"; };
 		E42821E52DCB9CEF00DC1D96 /* GroupModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupModal.swift; sourceTree = "<group>"; };
 		E445730B2DCBF8A0006A3E3B /* ViewExplore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExplore.swift; sourceTree = "<group>"; };
+		E445730D2DCC0601006A3E3B /* ViewPerfil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewPerfil.swift; sourceTree = "<group>"; };
 		E468898A2DC9325000D44F7C /* ViewMeuLivro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMeuLivro.swift; sourceTree = "<group>"; };
 		E489954D2DCA46DE004DBE40 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		E547B5962DAD298100B04FC0 /* leae.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = leae.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +148,7 @@
 				E547B5D42DAD541000B04FC0 /* ViewConstancia.swift */,
 				E489954D2DCA46DE004DBE40 /* LibraryView.swift */,
 				E548B4E72DB7BE8700C566AC /* ViewLivro.swift */,
+				E445730D2DCC0601006A3E3B /* ViewPerfil.swift */,
 				E468898A2DC9325000D44F7C /* ViewMeuLivro.swift */,
 				E445730B2DCBF8A0006A3E3B /* ViewExplore.swift */,
 				E587D8EB2DAE884200E00062 /* ViewPerfilProprio.swift */,
@@ -327,6 +330,7 @@
 				E40C240C2DBFB3AC005CFC02 /* ViewAtualizacao.swift in Sources */,
 				E5BD7F7D2DB7E76700274842 /* Grupo.swift in Sources */,
 				E5BD7F7B2DB7E64800274842 /* Usuario.swift in Sources */,
+				E445730E2DCC0601006A3E3B /* ViewPerfil.swift in Sources */,
 				E58D34E02DBA5FAE003CB7B0 /* ViewModelUsuario.swift in Sources */,
 				E489954E2DCA46DE004DBE40 /* LibraryView.swift in Sources */,
 				E547B5D52DAD541000B04FC0 /* ViewConstancia.swift in Sources */,
