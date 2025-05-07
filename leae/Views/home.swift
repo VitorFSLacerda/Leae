@@ -56,6 +56,7 @@ struct GadgetCarousel: View {
             }
             .padding()
         }
+        .padding(10)
     }
 }
 // explorar
@@ -122,6 +123,7 @@ struct HomeView: View {
             destination: AnyView(ViewConstancia())
         )
     ]
+    
     var body: some View{
         NavigationView{
             VStack{
@@ -150,8 +152,7 @@ struct HomeView: View {
                                              "Self Assestment":"Mente milionaria"])
                             .onTapGesture{
                                 showGroupModal = true
-                            }
-                    }
+                            }                    }
                     .background(
                         NavigationLink(
                             isActive: $showGroupModal,
@@ -181,6 +182,7 @@ struct HomeView: View {
                 }
                 .navigationBarTitle("Resumo")
             }
+            .background(Color("Base"))
         }
         //    .navigationViewStyle(.stack)
         //    .ignoresSafeArea(.all, edges: .top)

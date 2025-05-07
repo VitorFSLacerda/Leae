@@ -108,7 +108,7 @@ struct Comments: View {
                 .border(Color(hex: "FFD9CF"), width: 2)
                 .cornerRadius(4)
                 .foregroundColor(.white)
-                .frame(width: 362, height: 140)
+                .frame(width: 340, height: 140)
                 .shadow(color: .black.opacity(0.2), radius: 7, x: 3, y: 1)
               VStack(alignment: .leading, spacing: 12) {
                 Text(user)
@@ -120,17 +120,18 @@ struct Comments: View {
                   .fontWeight(.regular)
                   .foregroundColor(.black.opacity(0.8))
                   .fixedSize(horizontal: false, vertical: true)
-                  .lineLimit(nil)
+                  .lineLimit(3)
                   .frame(maxWidth: .infinity, alignment: .leading)
               }
               .padding()
             }
-            .frame(width: 362, height: 140)
+            .frame(width: 340, height: 140)
             .padding(.vertical)
           }
         }
       }
       .padding(.horizontal)
+      .padding(.leading, 3)
     }
   }
 }

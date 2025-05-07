@@ -58,6 +58,7 @@ struct GroupModal: View {
         }
         .padding(.horizontal, 20)
       }
+      .background(Color("Base"))
     }
     .navigationBarTitle("Grupos")
     .navigationBarTitleDisplayMode(.inline)
