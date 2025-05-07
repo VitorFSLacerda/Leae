@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct MeuLivroView: View {
+    @Environment(\.presentationMode) var presentationMode
+    
     @State private var naEstante: Bool = true
     
     @State private var dataDeInicio: String = ""
@@ -96,14 +98,14 @@ struct MeuLivroView: View {
                 }
                 Spacer(minLength: 160)
                 VStack{
-                    Button(action: { naEstante = false } ) {
-                        Text("Remover da Estante")
-                            .font(Font.custom("SF Pro Text", size: 18))
-                            .foregroundColor(Color("Highlight"))
-                            .frame(width: 344, height:80)
-                            .background(Color(hex: "#F48B8B"))
-                            .cornerRadius(20)
+                    Button("Remover da Estante") {
+                        presentationMode.wrappedValue.dismiss()
                     }
+                    .font(Font.custom("SF Pro Text", size: 18))
+                    .foregroundColor(Color("Highlight"))
+                    .frame(width: 344, height:80)
+                    .background(Color(hex: "#F48B8B"))
+                    .cornerRadius(20)
                 }
                 .frame(maxHeight: .infinity, alignment: .bottom)
                 .navigationTitle("Meu Livro")
