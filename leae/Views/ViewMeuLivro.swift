@@ -59,7 +59,7 @@ struct MeuLivroView: View {
                             Button("Atualizar Leitura") {
                                 showSheet = true
                             }
-                            .background( AtualizacaoPresenter(isPresented: $showSheet) {CustomAtualizacaoView()} )
+                            .background( AtualizacaoPresenter(isPresented: $showSheet) {CustomAtualizacaoView(showSheet: $showSheet)} )
                             .font(Font.custom("SF Pro Text", size: 18))
                             .foregroundColor(Color("Highlight"))
                         }

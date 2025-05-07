@@ -14,7 +14,7 @@ struct ViewAtualizacao: View {
         Button("Atualizar Leitura") {
             showSheet = true
         }
-        .background( AtualizacaoPresenter(isPresented: $showSheet) {CustomAtualizacaoView()} )
+        .background( AtualizacaoPresenter(isPresented: $showSheet) {CustomAtualizacaoView(showSheet: $showSheet)} )
     }
 }
 
@@ -27,30 +27,51 @@ struct ViewAtualizacao_Previews: PreviewProvider {
 struct AtualizacaoPresenter<Content: View>: UIViewControllerRepresentable {
     @Binding var isPresented: Bool
     var content: () -> Content
-    
+
+    class Coordinator {
+        var parent: AtualizacaoPresenter
+        weak var presentedVC: UIViewController?
+
+        init(parent: AtualizacaoPresenter) {
+            self.parent = parent
+        }
+    }
+
+    func makeCoordinator() -> Coordinator {
+        Coordinator(parent: self)
+    }
+
     func makeUIViewController(context: Context) -> UIViewController {
         UIViewController()
     }
-    
+
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
-        guard isPresented, uiViewController.presentedViewController == nil else { return }
-        
-        let hostingController = UIHostingController(rootView: content())
-        hostingController.modalPresentationStyle = .pageSheet
-        
-        if let sheet = hostingController.sheetPresentationController {
-            sheet.detents = [.large()]
-            sheet.prefersGrabberVisible = true
-            sheet.preferredCornerRadius = 30
+        // Apresenta o modal se for true e ainda não estiver sendo apresentado
+        if isPresented, context.coordinator.presentedVC == nil {
+            let hostingController = UIHostingController(rootView: content())
+            hostingController.modalPresentationStyle = .pageSheet
+
+            if let sheet = hostingController.sheetPresentationController {
+                sheet.detents = [.large()]
+                sheet.prefersGrabberVisible = true
+                sheet.preferredCornerRadius = 30
+            }
+
+            uiViewController.present(hostingController, animated: true)
+            context.coordinator.presentedVC = hostingController
         }
-        
-        uiViewController.present(hostingController, animated: true) {
-            isPresented = false // reseta para evitar múltiplas apresentações
+        // Fecha o modal se o binding foi alterado para false
+        else if !isPresented, let presented = context.coordinator.presentedVC {
+            presented.dismiss(animated: true) {
+                context.coordinator.presentedVC = nil
+            }
         }
     }
 }
 
 struct CustomAtualizacaoView: View {
+    @Binding var showSheet: Bool
+    
     @State private var isOn_one: Bool = false
     @State private var isOn_two: Bool = false
     @State private var comentario: String = ""
@@ -68,14 +89,16 @@ struct CustomAtualizacaoView: View {
                     .foregroundColor(Color("Highlight"))
                     .frame(maxWidth: .infinity, alignment: .center)
                     .frame(width: 150, alignment: .center)
-                Text("Salvar")
-                    .font(
-                        Font.custom("SF Pro Text", size: 15)
-                            .weight(.semibold)
-                    )
-                    .multilineTextAlignment(.leading)
-                    .foregroundColor(Color("Hover"))
-                    .frame(maxWidth: 90, alignment: .trailing)
+                Button(action: {showSheet = false}) {
+                    Text("Salvar")
+                        .font(
+                            Font.custom("SF Pro Text", size: 15)
+                                .weight(.semibold)
+                        )
+                        .multilineTextAlignment(.leading)
+                        .foregroundColor(Color("Hover"))
+                        .frame(maxWidth: 90, alignment: .trailing)
+                }
             }
             .frame(width: .infinity, height: 30, alignment: .center)
             .offset(x: 45)
