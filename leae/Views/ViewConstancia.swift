@@ -7,7 +7,7 @@ struct ViewConstancia: View {
         Button("Progresso") {
             showSheet = true
         }
-        .background( ConstanciaPresenter(isPresented: $showSheet) {CustomConstanciaView()} )
+        .background( ConstanciaPresenter(isPresented: $showSheet) {CustomConstanciaView(showSheet: $showSheet)} )
     }
 }
 
@@ -21,29 +21,51 @@ struct ConstanciaPresenter<Content: View>: UIViewControllerRepresentable {
     @Binding var isPresented: Bool
     var content: () -> Content
     
+    class Coordinator {
+        var parent: ConstanciaPresenter
+        weak var presentedVC: UIViewController?
+        
+        init(parent: ConstanciaPresenter) {
+            self.parent = parent
+        }
+    }
+    
+    func makeCoordinator() -> Coordinator {
+        Coordinator(parent: self)
+    }
+    
     func makeUIViewController(context: Context) -> UIViewController {
         UIViewController()
     }
     
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
-        guard isPresented, uiViewController.presentedViewController == nil else { return }
-        
-        let hostingController = UIHostingController(rootView: content())
-        hostingController.modalPresentationStyle = .pageSheet
-        
-        if let sheet = hostingController.sheetPresentationController {
-            sheet.detents = [.large()]
-            sheet.prefersGrabberVisible = true
-            sheet.preferredCornerRadius = 30
+        // Apresenta o modal se for true e ainda não estiver sendo apresentado
+        if isPresented, context.coordinator.presentedVC == nil {
+            let hostingController = UIHostingController(rootView: content())
+            hostingController.modalPresentationStyle = .pageSheet
+            
+            if let sheet = hostingController.sheetPresentationController {
+                sheet.detents = [.large()]
+                sheet.prefersGrabberVisible = true
+                sheet.preferredCornerRadius = 30
+            }
+            
+            uiViewController.present(hostingController, animated: true)
+            context.coordinator.presentedVC = hostingController
         }
-        
-        uiViewController.present(hostingController, animated: true) {
-            isPresented = false // reseta para evitar múltiplas apresentações
+        // Fecha o modal se o binding foi alterado para false
+        else if !isPresented, let presented = context.coordinator.presentedVC {
+            presented.dismiss(animated: true) {
+                context.coordinator.presentedVC = nil
+            }
         }
     }
 }
 
+
 struct CustomConstanciaView: View {
+    @Binding var showSheet: Bool
+    
     @State private var dom: Bool = false
     @State private var seg: Bool = false
     @State private var ter: Bool = false
@@ -63,18 +85,6 @@ struct CustomConstanciaView: View {
     var body: some View {
         VStack{
             HStack(alignment: .center, spacing: 0) {
-                Image(systemName: "chevron.backward")
-                    .foregroundColor(Color("Hover"))
-                    .offset(y: 15)
-                Text("Cancelar")
-                    .font(
-                        Font.custom("SF Pro Text", size: 15)
-                            .weight(.semibold)
-                    )
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(Color("Hover"))
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .offset(y: 15)
                 Text("Constância")
                     .font(
                         Font.custom("SF Pro Text", size: 20)
@@ -82,8 +92,8 @@ struct CustomConstanciaView: View {
                     )
                     .multilineTextAlignment(.center)
                     .foregroundColor(Color("Highlight"))
-                    .frame(maxWidth: .infinity, alignment: .center)
-                    .offset(x: -95, y: 15)
+                    .frame(maxWidth: 344, alignment: .center)
+                    .offset(y: 15)
             }
             .frame(width: .infinity, height: 30, alignment: .center)
             .padding(5)

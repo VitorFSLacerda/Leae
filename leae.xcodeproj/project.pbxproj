@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E40C240C2DBFB3AC005CFC02 /* ViewAtualizacao.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C240B2DBFB3AC005CFC02 /* ViewAtualizacao.swift */; };
+		E42821E62DCB9CEF00DC1D96 /* GroupModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42821E52DCB9CEF00DC1D96 /* GroupModal.swift */; };
 		E468898B2DC9325000D44F7C /* ViewMeuLivro.swift in Sources */ = {isa = PBXBuildFile; fileRef = E468898A2DC9325000D44F7C /* ViewMeuLivro.swift */; };
 		E489954E2DCA46DE004DBE40 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E489954D2DCA46DE004DBE40 /* LibraryView.swift */; };
 		E547B59A2DAD298100B04FC0 /* LeaeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E547B5992DAD298100B04FC0 /* LeaeApp.swift */; };
@@ -46,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		E40C240B2DBFB3AC005CFC02 /* ViewAtualizacao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAtualizacao.swift; sourceTree = "<group>"; };
+		E42821E52DCB9CEF00DC1D96 /* GroupModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupModal.swift; sourceTree = "<group>"; };
 		E468898A2DC9325000D44F7C /* ViewMeuLivro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMeuLivro.swift; sourceTree = "<group>"; };
 		E489954D2DCA46DE004DBE40 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		E547B5962DAD298100B04FC0 /* leae.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = leae.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				E547B59B2DAD298100B04FC0 /* ContentView.swift */,
+				E42821E52DCB9CEF00DC1D96 /* GroupModal.swift */,
 				E58D34E12DBA5FCE003CB7B0 /* home.swift */,
 				E40C240B2DBFB3AC005CFC02 /* ViewAtualizacao.swift */,
 				E547B5D42DAD541000B04FC0 /* ViewConstancia.swift */,
@@ -328,6 +331,7 @@
 				E468898B2DC9325000D44F7C /* ViewMeuLivro.swift in Sources */,
 				E5FF8A1F2DB9034D00B8F051 /* Missao.swift in Sources */,
 				E548B4E82DB7BE8700C566AC /* ViewLivro.swift in Sources */,
+				E42821E62DCB9CEF00DC1D96 /* GroupModal.swift in Sources */,
 				E58D34E22DBA5FCE003CB7B0 /* home.swift in Sources */,
 				E58D34DF2DBA5FAE003CB7B0 /* ViewModelComentario.swift in Sources */,
 			);

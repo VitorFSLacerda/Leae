@@ -1,10 +1,3 @@
-//
-//  ViewAtualizacao.swift
-//  leae
-//
-//  Created by Aluno 09 on 28/04/25.
-//
-
 import SwiftUI
 
 struct ViewAtualizacao: View {
