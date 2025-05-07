@@ -14,6 +14,8 @@ struct LivroView: View {
     @State private var av_2: String = "19"
     @State private var av_1: String = "28"
     
+    @State private var showGroupModal = false
+    
     var body: some View {
         ZStack {
             Color("Base").ignoresSafeArea()
@@ -104,10 +106,26 @@ struct LivroView: View {
                         
                     }
                     Spacer(minLength: 40)
-                    VStack{
-                        ListCard_Livro(title:"Grupos", sub: "Leia e discuta com seus amigos", GroupBook: ["Faz o urro":"Shreck", "Fãs do Damon":"TVD", "Self Assestment":"Mente milionaria"])
-                            .frame(width: 344, alignment: .center)
-                    }
+                    ZStack{
+                        ListCard(title:"Grupos",
+                                 sub: "Leia e discuta com seus amigos",
+                                 GroupBook: ["Faz o urro":"Shreck",
+                                             "Fãs do Damons":"TVD",
+                                             "Self Assestment":"Mente milionaria"])
+                            .onTapGesture{
+                                showGroupModal = true
+                            }                    }
+                    .background(
+                        NavigationLink(
+                            isActive: $showGroupModal,
+                            destination: {
+                                GroupModal()
+                            },
+                            label: { EmptyView() }
+                        )
+                            .hidden()
+                            .frame(width: 0, height: 0)
+                    )
                     Spacer(minLength: 20)
                     Button(action: { meu.toggle() } ) {
                         if meu {

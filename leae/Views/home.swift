@@ -74,13 +74,15 @@ struct TabBar: View {
                     Text("Home")
                 }
                 .tag(0)
-            Color.red
+            
+            ExploreView()
                 .tabItem{
                     Image(systemName: "globe")
                         .font(.system(size:25))
                     Text("Explorar")
                 }
                 .tag(1)
+            
             LibraryView()
                 .tabItem{
                     Image(systemName: "book")
@@ -88,6 +90,7 @@ struct TabBar: View {
                     Text("Bilioteca")
                 }
                 .tag(2)
+            
             Color.clear
                 .tabItem{
                     Image(systemName: "person.circle")
