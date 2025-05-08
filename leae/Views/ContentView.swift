@@ -1,26 +1,36 @@
-import SwiftUI
-
-struct ContentView: View {
-
-    var body: some View {
-        VStack {
-            Spacer()
-            Image("App")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 500, height: 500)
-                .shadow(color: .black.opacity(0.4), radius: 5, x: 0, y: 10)
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color("Hover"))
-        .ignoresSafeArea()
-    }
-}
-///
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
             ContentView()
+        }
+    }
+}
+
+import SwiftUI
+
+struct ContentView: View {
+    @State private var showTabBar = false
+
+    var body: some View {
+        ZStack {
+            Color("Hover")
+                .ignoresSafeArea()
+                .contentShape(Rectangle()) // permite toque em toda a área
+                .onTapGesture {
+                    showTabBar = true#imageLiteral(resourceName: "simulator_screenshot_CC5F53D9-9D40-4C9F-8C27-D105831D2991.png")
+                }
+
+            VStack {
+                Spacer()
+                Image("App")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 500, height: 500)
+                    .shadow(color: .black.opacity(0.4), radius: 5, x: 0, y: 10)
+            }
+        }
+        .fullScreenCover(isPresented: $showTabBar) {
+            TabBar()
         }
     }
 }

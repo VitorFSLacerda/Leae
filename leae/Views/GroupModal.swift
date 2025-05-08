@@ -37,23 +37,25 @@ struct GroupModal: View {
       ScrollView(.vertical, showsIndicators: false) {
         VStack(alignment: .leading, spacing: 12) {
           ForEach(Array(GroupBooks.keys.sorted()), id: \.self) { group in
-            if let book = GroupBooks[group] {
-              VStack(alignment: .leading, spacing: 6) {
-                Text(group)
-                  .font(.system(size: 16, weight: .light))
-                HStack {
-                  Text(book)
-                    .font(.caption)
-                    .fontWeight(.light)
-                  Spacer()
-                  Image(systemName:"chevron.right")
-                    .foregroundColor(Color(hex: "6F230F"))
-                }
+              if let book = GroupBooks[group] {
+                  NavigationLink(destination: GroupView()){
+                      VStack(alignment: .leading, spacing: 6) {
+                          Text(group)
+                              .font(.system(size: 16, weight: .light))
+                          HStack {
+                              Text(book)
+                                  .font(.caption)
+                                  .fontWeight(.light)
+                              Spacer()
+                              Image(systemName:"chevron.right")
+                                  .foregroundColor(Color(hex: "6F230F"))
+                          }
+                      }
+                      .padding(.vertical, 8)
+                      Divider()
+                          .padding(.leading, -20) // Alinha o divisor com a margem
+                  }
               }
-              .padding(.vertical, 8)
-              Divider()
-                .padding(.leading, -20) // Alinha o divisor com a margem
-            }
           }
         }
         .padding(.horizontal, 20)

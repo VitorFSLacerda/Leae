@@ -28,6 +28,11 @@ struct ConstanciaPresenter<Content: View>: UIViewControllerRepresentable {
         init(parent: ConstanciaPresenter) {
             self.parent = parent
         }
+        
+        func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+                parent.isPresented = false
+                presentedVC = nil
+            }
     }
     
     func makeCoordinator() -> Coordinator {

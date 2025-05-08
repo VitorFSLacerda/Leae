@@ -33,7 +33,6 @@ struct LibraryView: View {
     ]
     
     var body: some View {
-        NavigationView {
             VStack(spacing: 16) {
                 // Barra de navegação superior
                 HStack {
@@ -84,7 +83,6 @@ struct LibraryView: View {
             .padding(.top, 8)
             .background(Color("Base"))
             .navigationTitle("Minha Biblioteca")
-        }
     }
     
     // Filtrar livros com base no estado selecionado

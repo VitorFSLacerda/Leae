@@ -83,7 +83,9 @@ struct TabBar: View {
                 }
                 .tag(1)
             
-            LibraryView()
+            NavigationView{
+                LibraryView()
+            }
                 .tabItem{
                     Image(systemName: "book")
                         .font(.system(size:25))
@@ -91,7 +93,7 @@ struct TabBar: View {
                 }
                 .tag(2)
             
-            Color.clear
+            ViewPerfil()
                 .tabItem{
                     Image(systemName: "person.circle")
                         .font(.system(size:25))
