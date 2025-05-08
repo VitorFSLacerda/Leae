@@ -17,7 +17,7 @@ struct ContentView: View {
                 .ignoresSafeArea()
                 .contentShape(Rectangle()) // permite toque em toda a área
                 .onTapGesture {
-                    showTabBar = true#imageLiteral(resourceName: "simulator_screenshot_CC5F53D9-9D40-4C9F-8C27-D105831D2991.png")
+                    showTabBar = true
                 }
 
             VStack {
